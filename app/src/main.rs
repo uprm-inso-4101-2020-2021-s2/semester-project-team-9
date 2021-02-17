@@ -16,7 +16,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(move || {
         App::new()
-            .route("/", web::get().to(routes::hello_world))
+            .route("/", web::get().to(status)
             //add aditional routes here
     })
     .bind("127.0.0.1::8080")?
