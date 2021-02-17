@@ -1,6 +1,6 @@
 mod models;
 
-use crate::models:Status;
+use crate::models::Status;
 use actix_web::{App,HttpServer, web, Responder};
 use std::io;
 
