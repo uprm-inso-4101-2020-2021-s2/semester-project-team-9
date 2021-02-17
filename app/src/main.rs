@@ -10,7 +10,7 @@ async fn status() -> impl Responder{
    // "{\"status\": \"UP\"}"
 
    web::HttpResponse::Ok()
-    .json(Status {status: "Ok".to_string()})
+    .json(Status {status: "UP".to_string()})
 }
 
 #[actix_rt::main]
