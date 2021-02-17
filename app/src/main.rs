@@ -32,7 +32,7 @@ async fn main() -> io::Result<()> {
             //add aditional routes here
     })
     //.bind("127.0.0.1:8080")?
-    .bind(format("{}:{}", config.server.host, config.server.port))?
+    .bind(format!("{}:{}", config.server.host, config.server.port))?
     .run()
     .await
 }
