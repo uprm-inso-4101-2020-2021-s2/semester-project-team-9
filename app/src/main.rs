@@ -4,7 +4,7 @@ use std::io;
 mod routes;
 
 //To check if the server is UP -RVB
-ayns fn status() -> impl Responder{
+async fn status() -> impl Responder{
     "{\"status\": \"UP\"}"
 }
 
