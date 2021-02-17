@@ -4,7 +4,6 @@ use crate::models::Status;
 use actix_web::{App,HttpServer, web, Responder};
 use std::io;
 
-mod routes;
 
 //To check if the server is UP -RVB
 async fn status() -> impl Responder{
