@@ -15,7 +15,7 @@ async fn status() -> impl Responder{
 }
 
 #[actix_rt::main]
-async fn main() -> std::io::Result<()> {
+async fn main() -> io::Result<()> {
 
     println!("Starting server at http://127.0.0.1:8080");
 
