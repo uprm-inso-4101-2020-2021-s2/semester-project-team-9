@@ -1,3 +1,6 @@
+mod models;
+
+use crate::models:Status;
 use actix_web::{App,HttpServer, web, Responder};
 use std::io;
 
@@ -5,7 +8,10 @@ mod routes;
 
 //To check if the server is UP -RVB
 async fn status() -> impl Responder{
-    "{\"status\": \"UP\"}"
+   // "{\"status\": \"UP\"}"
+
+   web::HttpResponse::Ok()
+    .json(Status {status: "Ok".to_string()})
 }
 
 #[actix_rt::main]
@@ -16,7 +22,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(move || {
         App::new()
-            .route("/", web::get().to(status)
+            .route("/", web::get().to(status))
             //add aditional routes here
     })
     .bind("127.0.0.1::8080")?
