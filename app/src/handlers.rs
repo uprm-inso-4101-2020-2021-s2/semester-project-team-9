@@ -1,4 +1,4 @@
-use actix_web::{App,HttpServer, web, Responder};
+use actix_web::{web, Responder};
 use crate::models::Status;
 
 

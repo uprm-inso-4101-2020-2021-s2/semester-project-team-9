@@ -2,18 +2,21 @@ mod models;
 mod config;
 mod handlers;
 
-use crate::models::Status;
-use actix_web::{App,HttpServer, web, Responder};
+//Leave commented, so no warning appears on terminal, uncomment when needed -RVB
+// use crate::models::Status;
+// use crate::handlers::*;
+use crate::config::Config;
+use actix_web::{App,HttpServer, web};
 use std::io;
 use dotenv::dotenv;
 use tokio_postgres::NoTls;
-
 
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
 
     dotenv().ok();
-    let config = crate::config::Config::from_env().unwrap();
+
+    let config = Config::from_env().unwrap();
 
     let pool = config.pg.create_pool(NoTls).unwrap();
 
