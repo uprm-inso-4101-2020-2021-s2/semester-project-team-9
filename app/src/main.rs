@@ -1,6 +1,7 @@
 mod models;
 mod config;
 mod handlers;
+mod postgres;
 
 //Leave commented, so no warning appears on terminal, uncomment when needed -RVB
 // use crate::models::Status;
