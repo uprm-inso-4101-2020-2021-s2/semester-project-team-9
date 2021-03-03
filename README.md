@@ -13,3 +13,14 @@ The back end will be developed in Rust using [Actix web](https://actix.rs/) with
   1) _cargo check_ : quickly checks for errors and warnings
   2) _cargo run_ : compiles
   3) _sudo netstat -tulpn_ : see the servers active and listening
+
+- how to run postgresql with docker container  
+ inside of app, run:  
+ `docker-compose up -d`  
+ then run the sql file with:  
+ `psql -h 127.0.0.1 -p 5432 -U <PASSWORD> <DBNAME> < database.sql`
+ 
+ - Running the server  
+ Run: `cargo build`, then: `cargo run` to compile and run
+   
+ To kill services using a specific port use: `sudo fuser -k PORT/tcp`
