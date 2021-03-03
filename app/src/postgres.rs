@@ -5,7 +5,7 @@ use std::io;
 
 pub async fn get_services(client: &Client) -> Result<Vec<SubscriptionService>, io::Error> {
 
-    let statement = client.prepare("selec * from subscription_service").await.unwrap();
+    let statement = client.prepare("select * from subscription_services").await.unwrap();
 
     let services = client.query(&statement, &[])
         .await

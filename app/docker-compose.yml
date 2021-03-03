@@ -1,0 +1,11 @@
+version: "3.3"
+services: 
+  posrgres:
+    image: postgres:12.6
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: hello
+      POSTGRES_USER: team9
+      POSTGRES_DB: team9
+    ports: 
+      - 5432:5432

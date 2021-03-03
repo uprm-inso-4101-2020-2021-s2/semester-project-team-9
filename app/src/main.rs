@@ -5,7 +5,7 @@ mod postgres;
 
 //Leave commented, so no warning appears on terminal, uncomment when needed -RVB
 // use crate::models::Status;
-// use crate::handlers::*;
+use crate::handlers::*;
 use crate::config::Config;
 use actix_web::{App,HttpServer, web};
 use std::io;
@@ -27,6 +27,7 @@ async fn main() -> io::Result<()> {
         App::new()
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
+            .route("/subscriptions{_:/?}", web::get().to(get_subscriptions))
     })
 
     .bind(format!("{}:{}", config.server.host, config.server.port))?
