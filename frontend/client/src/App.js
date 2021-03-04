@@ -9,9 +9,10 @@ function App() {
   return (
     <div className="App">
       <h1>
-        Select Subscription
+        Select Subscription Service
       </h1>
       <br/><br/>
+
       <Row gutter = {[32,16]}>
         <Col span={6} offset = {1} style = {{backgroundColor: 'blue', color: 'white', height: "211px"}}>b</Col>
         <Col span={6} offset={2} style = {{backgroundColor: 'blue', color: 'white'}}>b</Col>
