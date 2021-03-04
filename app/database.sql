@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS subscription_services;
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS subscription_services;
+-- DROP TABLE IF EXISTS users;
 
 CREATE TABLE subscription_services(
     id SERIAL PRIMARY KEY,
