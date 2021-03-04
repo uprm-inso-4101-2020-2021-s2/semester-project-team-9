@@ -27,8 +27,9 @@ async fn main() -> io::Result<()> {
         App::new()
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
-            .route("/subscriptions{_:/?}", web::get().to(get_subscriptions))
-            .route("/add-sub{_:/?}", web::post().to(add_subscription))
+            .route("/get-all-services{_:/?}", web::get().to(get_services))
+            .route("/add-service{_:/?}", web::post().to(add_service))
+            .route("/rm-service{_:/?}", web::post().to(rm_service))
     })
 
     .bind(format!("{}:{}", config.server.host, config.server.port))?
