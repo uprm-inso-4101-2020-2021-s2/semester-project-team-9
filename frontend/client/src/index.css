@@ -11,3 +11,76 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Styles the top navigation bar container */
+#topbar{
+  background-color: black;
+  padding: 2vh;
+}
+/* Styles the left side (Web title and logo) of the top navigation bar */
+a.bar-item{
+  font-size: 24px;
+  font-family:  'Segoe UI', Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color: #fff;
+  display: inline-flex;
+  padding: 9px;
+}
+a.bar-item:hover{
+  text-decoration-line: none;
+}
+/* Styles the right side of the nav bar */
+ul.nav.justify-content-end{
+  display:block;
+  list-style-type: none;
+  float: right;
+}
+ul.nav.justify-content-end li{
+  margin-right: 5px;
+  float: right;
+
+}
+ul.nav.justify-content-end li a{
+  display: block;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  color: #fff;
+  padding: 12px;
+}
+ul.nav.justify-content-end li button{
+  border-radius: 35px;
+  padding: 0;
+  margin-right: 5px;
+  border-color:lightslategray;
+  background-color: rgb(84, 62, 207);
+}
+ul.nav.justify-content-end li a:hover{
+  text-decoration-line: none;
+  color: rgb(77, 75, 75);
+
+}
+ul.nav.justify-content-end li i{
+  padding-right: 0.8vw;
+}
+/* Title styling */
+#title-container{
+  background-color: lightcyan;
+}
+ #title-container h1{
+   font-family: Helvetica;
+   font-weight: bolder;
+   font-variant: small-caps;
+   color: lightgray;
+   font-size: 48px;
+  text-align: center;
+  margin: 0%;
+  padding: 4vh;
+}
+/* Message box */
+.container .row{
+  margin-left: 15vw;
+  
+}
