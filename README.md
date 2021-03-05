@@ -26,3 +26,8 @@ The back end will be developed in Rust using [Actix web](https://actix.rs/) with
  Run: `cargo build`, then: `cargo run` to compile and run. Make sure docker container is running the database.
    
  To kill services using a specific port use: `sudo fuser -k PORT/tcp` (on linux)
+ 
+ - ### Implemented Requests  
+   -  /get-all-services/ [TYPE = get]: Returns a list of JSON objects representing all subscription services.
+   -  /rm-service/ [TYPE = post]: Takes a JSON object containing the name of the subscription services to be removed & removes it.
+   -  /add-service/ [TYPE = post]: Takes a JSON object representing the subscription services & adds it.
