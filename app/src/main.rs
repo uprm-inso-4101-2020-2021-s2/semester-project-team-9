@@ -3,8 +3,6 @@ mod config;
 mod handlers;
 mod postgres;
 
-//Leave commented, so no warning appears on terminal, uncomment when needed -RVB
-// use crate::models::Status;
 use crate::handlers::*;
 use crate::config::Config;
 use actix_web::{App,HttpServer, web};
@@ -27,9 +25,10 @@ async fn main() -> io::Result<()> {
         App::new()
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
-            .route("/get-all-services{_:/?}", web::get().to(get_services))
-            .route("/add-service{_:/?}", web::post().to(add_service))
-            .route("/rm-service{_:/?}", web::post().to(rm_service))
+            .route("/get-user-services{_:/?}", web::get().to(get_custom_services))
+            .route("/add-user-service{_:/?}", web::post().to(add_custom_service))
+            .route("/rm-user-service{_:/?}", web::post().to(rm_custom_service))
+            .route("/get_services{_:/?}", web::post().to(get_services))
     })
 
     .bind(format!("{}:{}", config.server.host, config.server.port))?
