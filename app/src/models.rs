@@ -65,6 +65,7 @@ pub struct OwnerId {
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct SearchChars {
-    pub chars: String
+pub struct Search {
+    pub chars: String,
+    pub category: String
 }

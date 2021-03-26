@@ -10,11 +10,11 @@ CREATE TABLE subscription_services(
 );
 
 CREATE TABLE users( 
-    id VARCHAR(255) NOT NULL,
-    email VARCHAR(255),
+    id VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     fisrst_name VARCHAR(255), 
     last_name VARCHAR(255),
-    user_name VARCHAR(155),
+    user_name VARCHAR(155) UNIQUE NOT NULL,
     password VARCHAR(255)   
 );
 

@@ -75,3 +75,16 @@ pub async fn rm_custom_service(client: &Client, name: String, owner_id: String) 
         .collect::<Vec<SubscriptionService>>();
     Ok(services)
 }
+
+pub async fn get_services_with_cat(client: &Client, category: String) -> Result<Vec<SubscriptionService>, io::Error> {
+
+    let statement = client.prepare("select * from subscription_services where category like \"&1\"").await.unwrap();
+
+    let services = client.query(&statement, &[&category])
+        .await
+        .expect("Error getting subscription services")
+        .iter()
+        .map(|row| SubscriptionService::from_row_ref(row).unwrap())
+        .collect::<Vec<SubscriptionService>>();
+    Ok(services)
+}

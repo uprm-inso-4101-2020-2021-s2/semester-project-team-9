@@ -80,7 +80,7 @@ pub async fn get_services(db_pool: web::Data<Pool>) -> impl Responder {
     }
  }
 
- pub async fn get_services_withnm(db_pool: web::Data<Pool>, json: web::Json<SearchChars>) -> impl Responder {
+ pub async fn get_services_withnm(db_pool: web::Data<Pool>, json: web::Json<Search>) -> impl Responder {
 
     let client: Client = db_pool
         .get()
@@ -88,6 +88,22 @@ pub async fn get_services(db_pool: web::Data<Pool>) -> impl Responder {
         .expect("error connecting to the database");
 
     let result = postgres::get_services_with_name(&client, json.chars.clone())
+        .await;
+
+    match result {
+        Ok(services) => HttpResponse::Ok().json(services),
+        Err(_) => HttpResponse::InternalServerError().into()
+    }
+ }
+
+pub async fn get_services_with_cat(db_pool: web::Data<Pool>, json: web::Json<Search>) -> impl Responder {
+
+    let client: Client = db_pool
+        .get()
+        .await
+        .expect("error connecting to the database");
+
+    let result = postgres::get_services_with_cat(&client, json.category.clone())
         .await;
 
     match result {
