@@ -63,3 +63,8 @@ pub struct RemoveCustomService {
 pub struct OwnerId {
     pub id: String
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct SearchChars {
+    pub chars: String
+}

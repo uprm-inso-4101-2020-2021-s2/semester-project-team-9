@@ -63,3 +63,15 @@ pub async fn rm_custom_service(client: &Client, name: String, owner_id: String) 
         .ok_or(io::Error::new(io::ErrorKind::Other, "Error removing service"))
  }
 
+ pub async fn get_services_with_name(client: &Client, name: String) -> Result<Vec<SubscriptionService>, io::Error> {
+
+    let statement = client.prepare("select * from subscription_services where service_name like \"&1\"").await.unwrap();
+
+    let services = client.query(&statement, &[&name])
+        .await
+        .expect("Error getting subscription services")
+        .iter()
+        .map(|row| SubscriptionService::from_row_ref(row).unwrap())
+        .collect::<Vec<SubscriptionService>>();
+    Ok(services)
+}
