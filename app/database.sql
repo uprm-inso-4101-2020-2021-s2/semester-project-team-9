@@ -3,10 +3,10 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS custom_unique_services;
 
 CREATE TABLE subscription_services(
-    id SERIAL PRIMARY KEY,
     service_name VARCHAR(255),
     service_url VARCHAR(255),
-    category VARCHAR(255)
+    category VARCHAR(255),
+    plans VARCHAR(1024)
 );
 
 CREATE TABLE users( 
@@ -23,13 +23,35 @@ CREATE TABLE custom_unique_services(
     owner_id VARCHAR(255),
     service_name VARCHAR(255),
     service_url VARCHAR(255),
-    category VARCHAR(255)
+    category VARCHAR(255),
+    price INTEGER
 );
 
--- INSERT INTO subscription_services (service_name,service_url,category,plans) 
---     VALUES (
---         'Netflix',
---         'www.Netflix.com',
---         'entertainment',
---         'three plans'
---     );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES (
+        'Netflix',
+        'https://www.netflix.com/',
+        'entertainment',
+        '{"basic":8.99,"Standard":13.99,"premium":17.99}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Hulu',
+        'https://www.hulu.com/',
+        'entertainment',
+        '{"basic":5.99,"no ads":11.99,"+Live TV":17.99, "no ads and Live TV":70.99}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Prime Video',
+        'https://www.amazon.com/Prime-TV-Shows',
+        'entertainment',
+        '{"monthly":12.99, "yearly":119}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Disney+',
+        'https://www.disneyplus.com/',
+        'entertainment',
+        '{"monthly":7.99, "yearly":79.99}'
+    );

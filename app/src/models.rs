@@ -7,23 +7,23 @@ pub struct Status{
 }
 
 //For the moment leave comment so no warnings appears, when constructed, uncomment. -RVB
-#[derive(Serialize, Deserialize, PostgresMapper)]
+#[derive(Clone, Serialize, Deserialize, PostgresMapper)]
 #[pg_mapper(table="subscription_service")]
 pub struct SubscriptionService {
-    pub id: i32,
     pub service_name: String,
     pub service_url: String,
-    pub category: String
+    pub category: String,
+    pub plans: String
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
 #[pg_mapper(table="custom_unique_services")]
 pub struct CustomSubscriptionService {
-    pub id: i32,
     pub owner_id: String, //unique from user that is owner
     pub service_name: String,
     pub service_url: String,
-    pub category: String
+    pub category: String,
+    pub price: i32
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
@@ -32,7 +32,8 @@ pub struct CreateCustomSubscriptionService {
     pub owner_id: String, //unique from user that is owner
     pub service_name: String,
     pub service_url: String,
-    pub category: String
+    pub category: String,
+    pub price: i32
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
@@ -50,7 +51,8 @@ pub struct User {
 pub struct CreateService {
     pub service_name: String,
     pub service_url: String,
-    pub category: String
+    pub category: String,
+    pub plans: String
 }
 
 #[derive(Serialize, Deserialize)]
@@ -62,10 +64,4 @@ pub struct RemoveCustomService {
 #[derive(Serialize, Deserialize)]
 pub struct OwnerId {
     pub id: String
-}
-
-#[derive(Serialize, Deserialize)]
-pub struct Search {
-    pub chars: String,
-    pub category: String
 }

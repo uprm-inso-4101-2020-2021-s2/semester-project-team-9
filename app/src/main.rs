@@ -29,8 +29,6 @@ async fn main() -> io::Result<()> {
             .route("/add-user-service{_:/?}", web::post().to(add_custom_service))
             .route("/rm-user-service{_:/?}", web::post().to(rm_custom_service))
             .route("/get-services{_:/?}", web::get().to(get_services))
-            .route("/get-services_withnm{_:/?}", web::post().to(get_services_withnm))
-            .route("/get-services-with-cat{_:/?}", web::post().to(get_services_with_cat))
     })
 
     .bind(format!("{}:{}", config.server.host, config.server.port))?
