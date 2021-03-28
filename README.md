@@ -16,11 +16,11 @@ The back end will be developed in Rust using [Actix web](https://actix.rs/) with
 
 - ### Run postgresql with docker container  
  1. Create container. Inside of app, run:  
- `docker-compose up -d`  
+ `sudo docker-compose up -d`  
  2. Then copy the sql script into the container with:  
- `docker cp database.sql app_psql_1:/`
+ `sudo docker cp database.sql app_psql_1:/`
  3. Finally, run the sql script with:  
- `docker exec -it app_psql_1 psql --dbname=team9 --username team9 -f /database.sql`
+ `sudo docker exec -it app_psql_1 psql --dbname=team9 --username team9 -f /database.sql`
  
  - ### Running the server  
  Run: `cargo build`, then: `cargo run` to compile and run. Make sure docker container is running the database.
