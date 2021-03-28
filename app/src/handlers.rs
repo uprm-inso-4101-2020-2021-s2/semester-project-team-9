@@ -11,14 +11,14 @@ pub async fn status() -> impl Responder{
      .json(Status {status: "UP".to_string()})
  }
  
- pub async fn get_custom_services(db_pool: web::Data<Pool>, json: web::Json<OwnerId>) -> impl Responder {
+ pub async fn get_custom_services(db_pool: web::Data<Pool>) -> impl Responder {
 
     let client: Client = db_pool
         .get()
         .await
         .expect("error connecting to the database");
 
-    let result = postgres::get_custom_services(&client,json.id.clone())
+    let result = postgres::get_custom_services(&client)
         .await;
 
     match result {

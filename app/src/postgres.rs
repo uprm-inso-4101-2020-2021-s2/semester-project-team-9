@@ -17,11 +17,11 @@ pub async fn get_services(client: &Client) -> Result<Vec<SubscriptionService>, i
     Ok(services)
 }
 
-pub async fn get_custom_services(client: &Client, owner_id: String) -> Result<Vec<CustomSubscriptionService>, io::Error> {
+pub async fn get_custom_services(client: &Client) -> Result<Vec<CustomSubscriptionService>, io::Error> {
 
-    let statement = client.prepare("select * from custom_unique_services where owner_id = $1").await.unwrap();
+    let statement = client.prepare("select * from custom_unique_services").await.unwrap();
 
-    let services = client.query(&statement, &[&owner_id])
+    let services = client.query(&statement, &[])
         .await
         .expect("Error getting custom_unique_services")
         .iter()
