@@ -4,7 +4,6 @@ import 'antd/dist/antd.css'
 
 
 
-
 function App() {
   return (
     <div className="App">
@@ -12,10 +11,10 @@ function App() {
         Select Subscription
       </h1>
       <br/><br/>
-      <Row gutter = {[32,16]}>
-        <Col span={6} offset = {1} style = {{backgroundColor: 'blue', color: 'white', height: "211px"}}>b</Col>
-        <Col span={6} offset={2} style = {{backgroundColor: 'blue', color: 'white'}}>b</Col>
-        <Col span={6} offset ={2} style = {{backgroundColor: 'blue', color: 'white'}}>b</Col>
+      <Row  type = "flex" gutter = {[32,16]}>
+        <Col span={6} offset = {1} style = {{backgroundColor: '#FF0000', color: 'white', height: "211px"}}> <img src = "/images/Netflix.png" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}} /></Col>
+        <Col span={6} offset={2} style = {{backgroundColor: '#19E038', color: 'white'}}><img src = "/images/hulu.png" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}}/></Col>
+        <Col span={6} offset ={2} style = {{backgroundColor: '#19BCE0', color: 'white'}}><img src = "/images/spotify.png" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}}/></Col>
         
         
         
@@ -24,9 +23,9 @@ function App() {
       <br/><br/>
       <br/><br/>
       <Row gutter = {[32,16]}>
-        <Col span={6} offset = {1} style = {{backgroundColor: 'blue', color: 'white', height: "211px"}}>b</Col>
-        <Col span={6} offset={2} style = {{backgroundColor: 'blue', color: 'white'}}>b</Col>
-        <Col span={6} offset ={2} style = {{backgroundColor: 'blue', color: 'white'}}>b</Col>
+        <Col span={6} offset = {1} style = {{backgroundColor: '#0D4FB2', color: 'white', height: "211px"}}><img src = "/images/primevideo.jpg" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}}/></Col>
+        <Col span={6} offset={2} style = {{backgroundColor: '#0DA8B2', color: 'white'}}><img src = "/images/HBO_Max.jpeg" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}}/></Col>
+        <Col span={6} offset ={2} style = {{backgroundColor: '#FA19FF', color: 'white'}}><img src = "/images/disneyplus.png" style = {{width: "325px" , height: "211px", position: "absolute", left:"0"}}/></Col>
         
         
         
