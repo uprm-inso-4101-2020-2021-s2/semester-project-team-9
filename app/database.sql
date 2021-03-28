@@ -35,7 +35,7 @@ INSERT INTO custom_unique_services (owner_id,service_name,service_url,category,p
     );
 INSERT INTO subscription_services (service_name,service_url,category,plans) 
     VALUES (
-        'Netflix',
+        'Netflixxxxxx',
         'https://www.netflix.com/',
         'entertainment',
         '{"basic":8.99,"Standard":13.99,"premium":17.99}'
