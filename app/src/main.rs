@@ -25,7 +25,7 @@ async fn main() -> io::Result<()> {
         App::new()
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
-            .route("/get-user-services{_:/?}", web::post().to(get_custom_services))
+            .route("/get-user-services{_:/?}", web::get().to(get_custom_services))
             .route("/add-user-service{_:/?}", web::post().to(add_custom_service))
             .route("/rm-user-service{_:/?}", web::post().to(rm_custom_service))
             .route("/get-services{_:/?}", web::get().to(get_services))

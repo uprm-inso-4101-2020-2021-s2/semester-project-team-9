@@ -23,18 +23,18 @@ pub struct CustomSubscriptionService {
     pub service_name: String,
     pub service_url: String,
     pub category: String,
-    pub price: i32
+    pub plans: String
 }
 
-#[derive(Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table="custom_unique_services")]
-pub struct CreateCustomSubscriptionService {
-    pub owner_id: String, //unique from user that is owner
-    pub service_name: String,
-    pub service_url: String,
-    pub category: String,
-    pub price: i32
-}
+// #[derive(Serialize, Deserialize, PostgresMapper)]
+// #[pg_mapper(table="custom_unique_services")]
+// pub struct CreateCustomSubscriptionService {
+//     pub owner_id: String, //unique from user that is owner
+//     pub service_name: String,
+//     pub service_url: String,
+//     pub category: String,
+//     pub price: i32
+// }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
 #[pg_mapper(table="users")]

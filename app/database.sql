@@ -19,14 +19,20 @@ CREATE TABLE users(
 );
 
 CREATE TABLE custom_unique_services(
-    id SERIAL PRIMARY KEY,
     owner_id VARCHAR(255),
     service_name VARCHAR(255),
     service_url VARCHAR(255),
     category VARCHAR(255),
-    price INTEGER
+    plans VARCHAR(1024)
 );
-
+INSERT INTO custom_unique_services (owner_id,service_name,service_url,category,plans) 
+    VALUES(
+        'Chegg',
+        'Chegg',
+        'https://www.chegg.com/',
+        'educational',
+        '{"monthly":7.99, "yearly":79.99}'
+    );
 INSERT INTO subscription_services (service_name,service_url,category,plans) 
     VALUES (
         'Netflix',

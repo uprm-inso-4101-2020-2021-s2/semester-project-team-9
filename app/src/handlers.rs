@@ -27,7 +27,7 @@ pub async fn status() -> impl Responder{
     }
  }
 
- pub async fn add_custom_service(db_pool: web::Data<Pool>, json: web::Json<CreateCustomSubscriptionService>)-> impl Responder {
+ pub async fn add_custom_service(db_pool: web::Data<Pool>, json: web::Json<CustomSubscriptionService>)-> impl Responder {
     let client: Client = db_pool
         .get()
         .await
@@ -37,8 +37,9 @@ pub async fn status() -> impl Responder{
     let url = json.service_url.clone();
     let category = json.category.clone();
     let owner_id = json.owner_id.clone();
+    let plans = json.plans.clone();
 
-    let result = postgres::add_custom_service(&client, name, url, category, owner_id).await;
+    let result = postgres::add_custom_service(&client, name, url, category, owner_id, plans).await;
     
     match result {
         Ok(sub) => HttpResponse::Ok().json(sub),
