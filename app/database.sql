@@ -49,7 +49,7 @@ INSERT INTO subscription_services (service_name,service_url,category,plans)
     );
 INSERT INTO subscription_services (service_name,service_url,category,plans) 
     VALUES(
-        'Prime Video',
+        'Prime-TV-Shows',
         'https://www.amazon.com/Prime-TV-Shows',
         'entertainment',
         '{"monthly":12.99, "yearly":119}'
@@ -61,3 +61,51 @@ INSERT INTO subscription_services (service_name,service_url,category,plans)
         'entertainment',
         '{"monthly":7.99, "yearly":79.99}'
     );
+
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'HBO Max',
+        'https://www.hbomax.com//',
+        'entertainment',
+        '{"monthly":14.99}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Amazon Prime Video',
+        'https://www.amazon.com/Prime-Video/',
+        'entertainment',
+        '{"monthly":8.99}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Sling TV',
+        'https://www.sling.com/',
+        'entertainment',
+        '{"monthly":35.00}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Fubo TV',
+        'https://www.fubo.tv/',
+        'entertainment',
+        '{"Starter (monthly)":64.99, “Elite (monthly)”:69.99,”Pro (monthly)”: 79.99,”Latino Quarterly (qtr)”:99.00}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Peacock TV',
+        'https://www.peacocktv.com/',
+        'entertainment',
+        '{"monthly":4.99}'
+    );
+INSERT INTO subscription_services (service_name,service_url,category,plans) 
+    VALUES(
+        'Youtube TV',
+        'https://tv.youtube.com/',
+        'entertainment',
+        '{"monthly":64.99}'
+    );
+
+
+
+
+
