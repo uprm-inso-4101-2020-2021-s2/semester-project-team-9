@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './App.css';
+import './Select.css';
 import { Row, Col, Menu, Card, Radio, Input } from 'antd';
 import 'antd/dist/antd.css'
 
@@ -9,7 +9,7 @@ const { SubMenu } = Menu;
 const rootSubmenuKeys = ['sub1'];
 
 
-function App() {
+function Select() {
   const [openKeys, setOpenKeys] = React.useState([['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6']]);
   
   const [value, setValue] = React.useState(1);
@@ -38,8 +38,7 @@ function App() {
     <Col xs={24} md={md}>
       <Card hoverable style={{backgroundColor: {color}}} cover={<img alt = "card" src = {image} height = {height}/>}>
         <Card.Meta style={{backgroundColor: {color}}}/>
-  
-       
+
         <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 587 }}>
         <SubMenu key={sub} title={title}>
         <Radio.Group onChange={onChange} value={value}>
@@ -55,7 +54,7 @@ function App() {
   );
   return (
     <div className="Select">
-      <h1>
+      <h1 className ="Select-Header">
         Select Subscription
       </h1>
       <br/><br/>
@@ -73,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+export default Select;
