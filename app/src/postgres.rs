@@ -20,13 +20,30 @@ pub async fn get_services(client: &Client) -> Result<Vec<SubscriptionService>, i
     Ok(services)
 }
 
+pub async fn get_custom_services(client: &Client) -> Result<Vec<CustomSubscriptionService>, io::Error> {
+    let statement = client
+        .prepare("select * from custom_unique_services")
+        .await
+        .unwrap();
+
+    let services = client
+        .query(&statement, &[])
+        .await
+        .expect("Error getting subscription services")
+        .iter()
+        .map(|row| CustomSubscriptionService::from_row_ref(row).unwrap())
+        .collect::<Vec<CustomSubscriptionService>>();
+
+    Ok(services)
+}
+
 pub async fn add_service(
     client: &Client,
     name: String,
     url: String,
     category: String,
     plans: String,
-) -> Result<CustomSubscriptionService, io::Error> {
+) -> Result<SubscriptionService, io::Error> {
     let query = "insert into subscription_services (service_name, service_url,
         category,plans) values ($1, $2, $3, $4)";
 
@@ -34,6 +51,33 @@ pub async fn add_service(
 
     client
         .query(&statement, &[&name, &url, &category, &plans])
+        .await
+        .expect("error creating service")
+        .iter()
+        .map(|row| SubscriptionService::from_row_ref(row).unwrap())
+        .collect::<Vec<SubscriptionService>>()
+        .pop()
+        .ok_or(io::Error::new(
+            io::ErrorKind::Other,
+            "Error creating service",
+        ))
+}
+
+pub async fn add_custom_service(
+    client: &Client,
+    owner_id: String,
+    name: String,
+    url: String,
+    category: String,
+    plans: String,
+) -> Result<CustomSubscriptionService, io::Error> {
+    let query = "insert into custom_unique_services (owner_id, service_name, service_url,
+        category,plans) values ($1, $2, $3, $4, $5)";
+
+    let statement = client.prepare(query).await.unwrap();
+
+    client
+        .query(&statement, &[&owner_id, &name, &url, &category, &plans])
         .await
         .expect("error creating service")
         .iter()
@@ -58,6 +102,24 @@ pub async fn rm_service(client: &Client, name: String) -> Result<SubscriptionSer
         .iter()
         .map(|row| SubscriptionService::from_row_ref(row).unwrap())
         .collect::<Vec<SubscriptionService>>()
+        .pop()
+        .ok_or(io::Error::new(
+            io::ErrorKind::Other,
+            "Error removing service",
+        ))
+}
+pub async fn rm_custom_service(client: &Client, name: String) -> Result<CustomSubscriptionService, io::Error> {
+    let query = "delete from custom_unique_services where service_name = $1";
+
+    let statement = client.prepare(query).await.unwrap();
+
+    client
+        .query(&statement, &[&name])
+        .await
+        .expect("error removing service")
+        .iter()
+        .map(|row| CustomSubscriptionService::from_row_ref(row).unwrap())
+        .collect::<Vec<CustomSubscriptionService>>()
         .pop()
         .ok_or(io::Error::new(
             io::ErrorKind::Other,

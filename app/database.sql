@@ -26,10 +26,70 @@ CREATE TABLE custom_unique_services(
     category VARCHAR(255),
     plans VARCHAR(1024)
 );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user1',
+        'richardvb@gmail.com',
+        'Richard',
+        'Vazquez Burgos',
+        'racha',
+        'hello1',
+        false
+    );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user2',
+        'francisp@gmail.com',
+        'Francis',
+        'Patron',
+        'fran',
+        'hello2',
+        false
+    );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user3',
+        'genesisba@gmail.com',
+        'Genesis',
+        'Borges Aponte',
+        'gene',
+        'hello3',
+        false
+    );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user4',
+        'joshuacr@gmail.com',
+        'Joshua',
+        'Corretjer Rivera',
+        'josh',
+        'hello4',
+        false
+    );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user5',
+        'victorlh@gmail.com',
+        'Victor',
+        'Laureano Hermida',
+        'vic',
+        'hello5',
+        false
+    );
+INSERT INTO users (id,email,first_name,last_name,user_name,password,checked) 
+    VALUES(
+        'user6',
+        'juanvm@gmail.com',
+        'Juan J.',
+        'Velazquez Manana',
+        'juan',
+        'hello6',
+        false
+    );
 
 INSERT INTO custom_unique_services (owner_id,service_name,service_url,category,plans) 
     VALUES(
-        'Chegg',
+        'ownerid1',
         'Chegg',
         'https://www.chegg.com/',
         'education',

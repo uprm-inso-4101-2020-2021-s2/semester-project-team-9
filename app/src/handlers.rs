@@ -11,9 +11,37 @@ pub async fn status() -> impl Responder {
     })
 }
 
-pub async fn add_custom_service(
+pub async fn get_services(db_pool: web::Data<Pool>) -> impl Responder {
+    let client: Client = db_pool
+        .get()
+        .await
+        .expect("error connecting to the database");
+
+    let result = postgres::get_services(&client).await;
+
+    match result {
+        Ok(services) => HttpResponse::Ok().json(services),
+        Err(_) => HttpResponse::InternalServerError().into(),
+    }
+}
+
+pub async fn get_custom_services(db_pool: web::Data<Pool>) -> impl Responder {
+    let client: Client = db_pool
+        .get()
+        .await
+        .expect("error connecting to the database");
+
+    let result = postgres::get_custom_services(&client).await;
+
+    match result {
+        Ok(services) => HttpResponse::Ok().json(services),
+        Err(_) => HttpResponse::InternalServerError().into(),
+    }
+}
+
+pub async fn add_service(
     db_pool: web::Data<Pool>,
-    json: web::Json<CustomSubscriptionService>,
+    json: web::Json<SubscriptionService>,
 ) -> impl Responder {
     let client: Client = db_pool
         .get()
@@ -32,9 +60,31 @@ pub async fn add_custom_service(
     }
 }
 
-pub async fn rm_custom_service(
+pub async fn add_custom_service(
     db_pool: web::Data<Pool>,
-    json: web::Json<RemoveCustomService>,
+    json: web::Json<CustomSubscriptionService>,
+) -> impl Responder {
+    let client: Client = db_pool
+        .get()
+        .await
+        .expect("error connecting to the database");
+
+    let name = json.service_name.clone();
+    let url = json.service_url.clone();
+    let category = json.category.clone();
+    let plans = json.plans.clone();
+    let owner_id = json.owner_id.clone();
+
+    let result = postgres::add_custom_service(&client,owner_id,name, url, category, plans).await;
+    match result {
+        Ok(sub) => HttpResponse::Ok().json(sub),
+        Err(_) => HttpResponse::InternalServerError().into(),
+    }
+}
+
+pub async fn rm_service(
+    db_pool: web::Data<Pool>,
+    json: web::Json<RemoveService>,
 ) -> impl Responder {
     let client: Client = db_pool
         .get()
@@ -50,16 +100,20 @@ pub async fn rm_custom_service(
     }
 }
 
-pub async fn get_services(db_pool: web::Data<Pool>) -> impl Responder {
+pub async fn rm_custom_service(
+    db_pool: web::Data<Pool>,
+    json: web::Json<RemoveCustomService>,
+) -> impl Responder {
     let client: Client = db_pool
         .get()
         .await
         .expect("error connecting to the database");
 
-    let result = postgres::get_services(&client).await;
+    let name = json.service_name.clone();
 
+    let result = postgres::rm_custom_service(&client, name).await;
     match result {
-        Ok(services) => HttpResponse::Ok().json(services),
+        Ok(sub) => HttpResponse::Ok().json(sub),
         Err(_) => HttpResponse::InternalServerError().into(),
     }
 }

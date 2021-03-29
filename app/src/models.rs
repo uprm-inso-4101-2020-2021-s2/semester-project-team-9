@@ -7,7 +7,7 @@ pub struct Status {
 }
 
 #[derive(Clone, Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table = "subscription_service")]
+#[pg_mapper(table = "subscription_services")]
 pub struct SubscriptionService {
     pub service_name: String,
     pub service_url: String,
@@ -16,12 +16,14 @@ pub struct SubscriptionService {
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table = "subscription_service")]
+#[pg_mapper(table = "custom_unique_services")]
 pub struct CustomSubscriptionService {
+    pub owner_id: String,
     pub service_name: String,
     pub service_url: String,
     pub category: String,
     pub plans: String,
+    
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
