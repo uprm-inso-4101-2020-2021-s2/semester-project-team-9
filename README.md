@@ -37,10 +37,9 @@ The back end will be developed in Rust using [Actix web](https://actix.rs/) with
    -  /add-service/ [TYPE = post]: Takes a JSON object representing the subscription services & adds it.
  
  - ### PostgreSQL | Useful line commands
-
-   1. to edit/view database (hello)
+   1. to edit/view database (hello):
    `psql -h 127.0.0.1 -p 5432 -U team9`
-   2. to view current tables
+   2. to view current tables:
    `\dt`
-   3. to view a table (ex. subscription_services)
+   3. to view a table (ex. subscription_services):
    `select * from subscription_services;`
