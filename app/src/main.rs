@@ -3,7 +3,6 @@ mod handlers;
 mod models;
 mod postgres;
 
-
 use crate::config::Config;
 use crate::handlers::*;
 use actix_web::{web, App, HttpServer};
@@ -33,7 +32,7 @@ async fn main() -> io::Result<()> {
             .route("/rm-service{_:/?}", web::post().to(rm_custom_service))
             .route("/get-all-users{_:/?}", web::get().to(get_users))
             .route("/add-user{_:/?}", web::post().to(add_user))
-            .route("/rm-user{_:/?}", web::post().to(rm_user))            
+            .route("/rm-user{_:/?}", web::post().to(rm_user))
     })
     .bind(format!("{}:{}", config.server.host, config.server.port))?
     .run()

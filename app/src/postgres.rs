@@ -1,4 +1,4 @@
-use crate::models::{SubscriptionService, User, CustomSubscriptionService, RemoveCustomService};
+use crate::models::{CustomSubscriptionService, SubscriptionService, User};
 use deadpool_postgres::Client;
 use std::io;
 use tokio_pg_mapper::FromTokioPostgresRow;
@@ -25,7 +25,7 @@ pub async fn add_service(
     name: String,
     url: String,
     category: String,
-    plans: String
+    plans: String,
 ) -> Result<CustomSubscriptionService, io::Error> {
     let query = "insert into subscription_services (service_name, service_url,
         category,plans) values ($1, $2, $3, $4)";
