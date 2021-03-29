@@ -48,3 +48,17 @@ pub struct CreateService {
 pub struct RemoveService {
     pub service_name: String
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct AddUser {
+    pub email: String,
+    pub first_name: String,
+    pub last_name: String,
+    pub user_name: String,
+    pub password: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveUser {
+    pub user_name: String,
+}
