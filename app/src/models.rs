@@ -17,9 +17,8 @@ pub struct SubscriptionService {
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table="custom_unique_services")]
+#[pg_mapper(table="subscription_service")]
 pub struct CustomSubscriptionService {
-    pub owner_id: String, //unique from user that is owner
     pub service_name: String,
     pub service_url: String,
     pub category: String,
@@ -57,11 +56,30 @@ pub struct CreateService {
 
 #[derive(Serialize, Deserialize)]
 pub struct RemoveCustomService {
-    pub service_name: String,
-    pub owner_id: String
+    pub service_name: String
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct OwnerId {
     pub id: String
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveService {
+    pub service_name: String
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct AddUser {
+    pub id:String,
+    pub email: String,
+    pub first_name: String,
+    pub last_name: String,
+    pub user_name: String,
+    pub password: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveUser {
+    pub user_name: String,
 }
