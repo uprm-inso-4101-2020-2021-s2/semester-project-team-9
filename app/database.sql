@@ -15,7 +15,8 @@ CREATE TABLE users(
     first_name VARCHAR(255), 
     last_name VARCHAR(255),
     user_name VARCHAR(155) UNIQUE NOT NULL,
-    password VARCHAR(255)   
+    password VARCHAR(255),
+    checked boolean 
 );
 
 CREATE TABLE custom_unique_services(

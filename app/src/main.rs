@@ -33,6 +33,7 @@ async fn main() -> io::Result<()> {
             .route("/get-all-users{_:/?}", web::get().to(get_users))
             .route("/add-user{_:/?}", web::post().to(add_user))
             .route("/rm-user{_:/?}", web::post().to(rm_user))
+            .route("/check-user{_:/?}", web::put().to(check_users))
     })
     .bind(format!("{}:{}", config.server.host, config.server.port))?
     .run()

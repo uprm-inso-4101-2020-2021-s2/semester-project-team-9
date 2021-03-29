@@ -86,16 +86,19 @@ pub async fn add_user(
     lastname: String,
     username: String,
     password: String,
+    checked: bool,
 ) -> Result<User, io::Error> {
-    let query = "insert into users (id, email, first_name, last_name, user_name, password
-        ) values ($1, $2, $3, $4, $5, $6)";
+    let query = "insert into users (id, email, first_name, last_name, user_name, password,checked
+        ) values ($1, $2, $3, $4, $5, $6, $7)";
 
     let statement = client.prepare(query).await.unwrap();
 
     client
         .query(
             &statement,
-            &[&id, &email, &firstname, &lastname, &username, &password],
+            &[
+                &id, &email, &firstname, &lastname, &username, &password, &checked,
+            ],
         )
         .await
         .expect("error adding user")
@@ -120,4 +123,20 @@ pub async fn rm_user(client: &Client, username: String) -> Result<User, io::Erro
         .collect::<Vec<User>>()
         .pop()
         .ok_or(io::Error::new(io::ErrorKind::Other, "Error removing user"))
+}
+
+pub async fn check_users(client: &Client, username: String, id: String) -> Result<bool, io::Error> {
+    let query =
+        "update users set checked = true where user_name = $1 and id = $2 and checked = false";
+
+    let statement = client.prepare(query).await.unwrap();
+
+    let result = client
+        .execute(&statement, &[&username, &id])
+        .await
+        .expect("error checking user");
+    match result {
+        ref updated if *updated == 1 => Ok(true),
+        _ => Ok(false),
+    }
 }

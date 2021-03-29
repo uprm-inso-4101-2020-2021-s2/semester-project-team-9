@@ -1,5 +1,6 @@
+use crate::io::ErrorKind::Other;
 use crate::models::*;
-use crate::models::{CustomSubscriptionService, RemoveCustomService, Status};
+use crate::models::{CustomSubscriptionService, RemoveCustomService, ResultResponse, Status};
 use crate::postgres;
 use actix_web::{web, HttpResponse, Responder};
 use deadpool_postgres::{Client, Pool};
@@ -83,15 +84,18 @@ pub async fn add_user(db_pool: web::Data<Pool>, json: web::Json<AddUser>) -> imp
         .await
         .expect("error connecting to the database");
 
-    let email = json.user_name.clone();
-    let firstname = json.password.clone();
-    let lastname = json.password.clone();
+    let email = json.email.clone();
+    let firstname = json.first_name.clone();
+    let lastname = json.last_name.clone();
     let username = json.user_name.clone();
     let password = json.password.clone();
     let id = json.id.clone();
+    let checked = json.checked.clone();
 
-    let result =
-        postgres::add_user(&client, id, email, firstname, lastname, username, password).await;
+    let result = postgres::add_user(
+        &client, id, email, firstname, lastname, username, password, checked,
+    )
+    .await;
     match result {
         Ok(user) => HttpResponse::Ok().json(user),
         Err(_) => HttpResponse::InternalServerError().into(),
@@ -109,6 +113,26 @@ pub async fn rm_user(db_pool: web::Data<Pool>, json: web::Json<RemoveUser>) -> i
     let result = postgres::rm_user(&client, username).await;
     match result {
         Ok(user) => HttpResponse::Ok().json(user),
+        Err(_) => HttpResponse::InternalServerError().into(),
+    }
+}
+
+pub async fn check_users(db_pool: web::Data<Pool>, json: web::Json<CheckUser>) -> impl Responder {
+    let client: Client = db_pool
+        .get()
+        .await
+        .expect("error connecting to the database");
+
+    let username = json.user_name.clone();
+    let id = json.id.clone();
+    let result = postgres::check_users(&client, username, id).await;
+
+    match result {
+        Ok(true) => HttpResponse::Ok().json(ResultResponse { success: true }),
+        Ok(false) => HttpResponse::Ok().json(ResultResponse { success: false }),
+        Err(ref e) if e.kind() == Other => {
+            HttpResponse::Ok().json(ResultResponse { success: false })
+        }
         Err(_) => HttpResponse::InternalServerError().into(),
     }
 }

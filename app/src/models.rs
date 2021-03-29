@@ -27,12 +27,13 @@ pub struct CustomSubscriptionService {
 #[derive(Serialize, Deserialize, PostgresMapper)]
 #[pg_mapper(table = "users")]
 pub struct User {
-    pub id: i32, //must be a unique id
+    pub id: String, //must be a unique id
     pub email: String,
     pub first_name: String,
     pub last_name: String,
     pub user_name: String,
     pub password: String,
+    pub checked: bool,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -66,9 +67,21 @@ pub struct AddUser {
     pub last_name: String,
     pub user_name: String,
     pub password: String,
+    pub checked: bool,
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct RemoveUser {
     pub user_name: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct CheckUser {
+    pub user_name: String,
+    pub id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct ResultResponse {
+    pub success: bool,
 }
