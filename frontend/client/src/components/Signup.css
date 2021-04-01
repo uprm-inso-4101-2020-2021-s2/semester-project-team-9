@@ -1,0 +1,110 @@
+
+*{
+    box-sizing: border-box;
+}
+#signUpContainerBackground{
+    
+    background:rgba(231, 231, 235, 0.877);
+     overflow-y:scroll;
+     padding-bottom: 15%;
+}
+#signUpContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border-color: #2739d6;
+    position: fixed;
+    z-index: 1;
+    background:rgba(231, 231, 235, 0.877);
+    
+}
+
+#signUpHeader{
+    width: 60%;
+    height: 15%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 8px 8px 0 0;
+    background-color: #2739d6;
+    font-style: oblique;
+    font-variant: all-small-caps;
+
+}
+#signUpHeaderTitle {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 36px;
+    font-weight: bolder;
+    color: #FFFFFF;
+}
+
+#signUpFormContainer {
+    padding: 20px 10px;
+    width: 60%;
+    height: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #FFFFFF;
+    justify-self: center;
+    border-bottom: 8px;
+    position: relative;
+    border-style: solid;
+    border-color: rgb(197, 204, 206);
+}
+
+#signUpForm {
+    display: block;
+    margin: 0px auto;
+}
+.terms-container{
+    display: inline-block;
+    width: 30vw;
+    height:20vh;
+    overflow-y: scroll;
+}
+
+.signUpRow input {
+    height: 1%;
+    width: 65%;
+    margin: 0.3vh;
+    padding: 0.2vw;
+    border-style: none  none solid none;
+    border-color: rgb(105, 222, 238);
+}
+.signUpRow input:focus{
+    border-style: none none solid none;
+    border-color:rgb(125, 145, 233);
+}
+.signUpRow input[type=checkbox] {
+    height: 15px;
+    width: 2vh;
+    margin: 2vh;
+}
+
+.signUpRow button{
+    text-align: center;
+    margin:0.5%;
+    font-family: Helvetica;
+   
+}
+button{
+    float: right;
+     font-weight: bold;
+     font-variant: small-caps;
+ background-color: rgb(197, 204, 206);
+ border-style: none;
+ border-color:none;
+ border-radius: 8px;
+ padding: 1%;
+ color: white;
+ cursor: pointer;
+ z-index: 2;
+}
+
+
+
+button:hover{
+    background-color:#2739d6;
+}
+
