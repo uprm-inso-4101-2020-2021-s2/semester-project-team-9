@@ -86,49 +86,49 @@ function Sports() {
       <Row gutter={[32, 32]}>
         {cardGenerator({
           color: "#FF0000",
-          image: "/images/Netflix.png",
+          image: "/images/ESPN+.jpg",
           sub: "sub1",
           height: "332.05px",
           value: value,
-          title: "Netflix",
+          title: "ESPN+",
         })}
         {cardGenerator({
           color: "#19E038",
-          image: "/images/hulu.png",
+          image: "/images/NBC_Sports_logo.png",
           sub: "sub2",
           value: value,
           height: "332.05px",
-          title: "Hulu",
+          title: "NBC Sports",
         })}
         {cardGenerator({
           color: "#19BCE0",
-          image: "/images/spotify.png",
+          image: "/images/NFL-Gamepass-Logo.png",
           sub: "sub3",
           value: value,
           height: "332.05px",
-          title: "Spotify",
+          title: "NFL Gamepass",
         })}
 
         {cardGenerator({
           color: "#0D4FB2",
-          image: "/images/primevideo.jpg",
+          image: "/images/NBA-League-Pass.jpg",
           sub: "sub4",
           value: value,
-          title: "Prime Video",
+          title: "NBA League Pass",
         })}
         {cardGenerator({
           color: "#0DA8B2",
-          image: "/images/HBO_Max.jpeg",
+          image: "/images/fubotv-logo.png",
           sub: "sub5",
           value: value,
-          title: "HBO Max",
+          title: "Fubo TV",
         })}
         {cardGenerator({
           color: "#FA19FF",
-          image: "/images/disneyplus.png",
+          image: "/images/DAZN-Logo-0.png",
           sub: "sub6",
           value: value,
-          title: "Disney+",
+          title: "DAZN",
         })}
       </Row>
     </div>
