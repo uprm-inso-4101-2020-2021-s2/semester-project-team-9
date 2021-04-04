@@ -47,7 +47,7 @@ function Select() {
       <Card
         hoverable
         style={{ backgroundColor: { color } }}
-        cover={<img alt="card" src={image} height={height} />}
+        cover={<img alt="card" src={image} height="332.05px" />}
       >
         <Card.Meta style={{ backgroundColor: { color } }} />
 
@@ -55,7 +55,7 @@ function Select() {
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
-          style={{ width: 300 }}
+          style={{ width: 530 }}
         >
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>

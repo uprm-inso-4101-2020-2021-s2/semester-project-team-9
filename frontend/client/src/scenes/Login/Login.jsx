@@ -54,21 +54,21 @@ const FormCheckBox = props => (
     </div>
 );
 
-const FormButton = props => (
-    <div className='LogInRow'>
-        <button type='button'><NavLink to ="/select">{props.title}</NavLink></button>
-    </div>
-);
+    const FormButton = props => (
+        <div className='LogInRow'>
+            <button type='button'><NavLink to ="/home">{props.title}</NavLink></button>
+        </div>
+    );
 
-const LogInForm = props => (
-    <div id='LogInFormContainer'>
+    const LogInForm = props => (
+        <div id='LogInFormContainer'>
 
-        <form id="LogInForm" >
-            <FormInput type="text" placeholder="Email" required> Email</FormInput>
-            <FormInput type="password" placeholder="Password" required>Password</FormInput>
-            <FormButton title="LogIn" onClick="" />
-        </form>
-    </div>
-);
+            <form id="LogInForm" >
+                <FormInput type="text" placeholder="Email" required> Email</FormInput>
+                <FormInput type="password" placeholder="Password" required>Password</FormInput>
+                <FormButton title="LogIn" onClick="" />
+            </form>
+        </div>
+    );
 
 export default LogInContainer;
