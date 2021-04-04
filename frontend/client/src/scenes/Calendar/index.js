@@ -7,26 +7,15 @@ function getListData(value) {
   let listData;
   switch (value.date()) {
     case 8:
-      listData = [
-        { type: "warning", content: "This is warning event." },
-        { type: "success", content: "This is usual event." },
-      ];
+      listData = [{ type: "warning", content: "Payment due for: NBA League" }];
       break;
     case 10:
-      listData = [
-        { type: "warning", content: "This is warning event." },
-        { type: "success", content: "This is usual event." },
-        { type: "error", content: "This is error event." },
-      ];
+      listData = [{ type: "warning", content: "Payment due for: PSN Plus" }];
       break;
     case 15:
       listData = [
-        { type: "warning", content: "This is warning event" },
-        { type: "success", content: "This is very long usual event。。...." },
-        { type: "error", content: "This is error event 1." },
-        { type: "error", content: "This is error event 2." },
-        { type: "error", content: "This is error event 3." },
-        { type: "error", content: "This is error event 4." },
+        { type: "warning", content: "Payment due for: Netflix" },
+        { type: "warning", content: "Payment due for: Hulu" },
       ];
       break;
     default:

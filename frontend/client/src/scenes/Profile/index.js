@@ -12,33 +12,28 @@ function Profile() {
       <br></br>
       <br></br>
       <Descriptions title="User Info" bordered>
-        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-        <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
-        <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
-        <Descriptions.Item label="Order time">
-          2018-04-24 18:00:00
-        </Descriptions.Item>
-        <Descriptions.Item label="Usage Time" span={2}>
-          2019-04-24 18:00:00
-        </Descriptions.Item>
-        <Descriptions.Item label="Status" span={3}>
+        <Descriptions.Item label="Name">Jose del Valle</Descriptions.Item>
+        <Descriptions.Item label="Phone Number">5555-555-555</Descriptions.Item>
+        <Descriptions.Item label="Gender">Male</Descriptions.Item>
+        <Descriptions.Item label="Status">
           <Badge status="processing" text="Running" />
         </Descriptions.Item>
-        <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>
-        <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-        <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
-        <Descriptions.Item label="Config Info">
-          Data disk type: MongoDB
+        <Descriptions.Item label="Total Monthly Amount">
+          $200.00
+        </Descriptions.Item>
+        <Descriptions.Item label="Subscriptions">
+          Netflix
           <br />
-          Database version: 3.4
+          Hulu
           <br />
-          Package: dds.mongo.mid
+          Disney +
           <br />
-          Storage space: 10 GB
+          Amazon Prime
           <br />
-          Replication factor: 3
+          XBOX Gold Membership
           <br />
-          Region: East China 1<br />
+          Dollar Shave Club
+          <br />
         </Descriptions.Item>
       </Descriptions>
       ,
