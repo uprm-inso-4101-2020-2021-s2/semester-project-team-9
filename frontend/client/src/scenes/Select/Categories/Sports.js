@@ -61,16 +61,16 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-                7.99$
+                5.99$
               </Radio>
               <Radio style={radioStyle} value={2}>
-                11.99$
+                24.99$
               </Radio>
               <Radio style={radioStyle} value={3}>
-                14.99$
+                39.99$
               </Radio>
               <Radio style={radioStyle} value={4}>
-                19.99$
+                119.99$
               </Radio>
             </Radio.Group>
           </SubMenu>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Row, Col } from "antd";
 import Sports from "./Categories/Sports";
+import Entertainment from "./Categories/Entertainment";
 const { TabPane } = Tabs;
 
 function Select() {
@@ -11,11 +12,11 @@ function Select() {
           <Sports />
         </TabPane>
         <TabPane tab="Entertainment" key="2">
-          Content of Tab 2
+          <Entertainment />
         </TabPane>
-        <TabPane tab="Other" key="3">
+        {/* <TabPane tab="Other" key="3">
           Content of Tab 3
-        </TabPane>
+        </TabPane> */}
       </Tabs>
     </>
   );

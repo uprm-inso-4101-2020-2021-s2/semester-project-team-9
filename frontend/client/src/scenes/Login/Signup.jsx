@@ -71,19 +71,9 @@ const SignUpForm = props => (
       <br />
       <div className="terms-container">
         <text>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nesciunt saepe eveniet a illo beatae
-          amet ab. Perferendis libero tenetur inventore cupiditate exercitationem dolore quidem mollitia accusantium
-          ipsa. Qui, praesentium!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nesciunt saepe eveniet a illo beatae
-          amet ab. Perferendis libero tenetur inventore cupiditate exercitationem dolore quidem mollitia accusantium
-          ipsa. Qui, praesentium!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nesciunt saepe eveniet a illo beatae
-          amet ab. Perferendis libero tenetur inventore cupiditate exercitationem dolore quidem mollitia accusantium
-          ipsa. Qui, praesentium!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nesciunt saepe eveniet a illo beatae
-          amet ab. Perferendis libero tenetur inventore cupiditate exercitationem dolore quidem mollitia accusantium
-          ipsa. Qui, praesentium!
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex odio sequi quibusdam officiis neque
-          corrupti esse ad dicta voluptate alias, molestias soluta? Corporis debitis doloribus sequi veniam est? Dicta, dolor.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio qui nemo praesentium maiores vel
-          repellendus aut, quibusdam, quisquam deleniti at asperiores laboriosam consectetur quasi eum modi rem, voluptates amet!
+          To access the application the user must accept the terms and conditions. By using this application the user is wilfully presenting which subscription 
+          services they are subscribed to and how much money they are spending on these services. This information will be protected but it may be used anonymously
+          to gather information on which the services popularity, correlations among their userbases and how much money are customers spending on these services.
         </text>
       </div>
       <FormCheckBox id="terms" label="I agree to the terms and conditions." required />
