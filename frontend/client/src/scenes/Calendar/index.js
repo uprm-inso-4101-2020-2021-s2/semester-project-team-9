@@ -1,7 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
 import { Calendar, Badge } from "antd";
-const { TabPane } = Tabs;
 
 function getListData(value) {
   let listData;
@@ -51,7 +50,7 @@ function monthCellRender(value) {
     </div>
   ) : null;
 }
-function Home() {
+function Calendar() {
   return (
     <>
       <Calendar
@@ -62,4 +61,4 @@ function Home() {
     </>
   );
 }
-export default Home;
+export default Calendar;
