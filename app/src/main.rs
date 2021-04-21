@@ -2,9 +2,11 @@ mod config;
 mod handlers;
 mod models;
 mod postgres;
+mod auth;
 
 use crate::config::Config;
 use crate::handlers::*;
+use crate::auth::{register, login};
 use actix_web::{web, App, HttpServer};
 use dotenv::dotenv;
 use std::io;
@@ -34,9 +36,10 @@ async fn main() -> io::Result<()> {
             .route("/rm-service{_:/?}", web::post().to(rm_service))
             .route("/rm-custom-service{_:/?}", web::post().to(rm_custom_service))
             .route("/get-users{_:/?}", web::get().to(get_users))
-            .route("/add-user{_:/?}", web::post().to(add_user))
             .route("/rm-user{_:/?}", web::post().to(rm_user))
             .route("/check-user{_:/?}", web::put().to(check_users))
+            .route("/register{_:/?}", web::post().to(register))
+            .route("/login{_:/?}", web::post().to(login))
     })
     .bind(format!("{}:{}", config.server.host, config.server.port))?
     .run()

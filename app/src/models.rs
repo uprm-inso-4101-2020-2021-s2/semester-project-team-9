@@ -63,7 +63,6 @@ pub struct RemoveService {
 
 #[derive(Serialize, Deserialize)]
 pub struct AddUser {
-    pub id: String,
     pub email: String,
     pub first_name: String,
     pub last_name: String,
@@ -71,6 +70,13 @@ pub struct AddUser {
     pub password: String,
     pub checked: bool,
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct LoginUser {
+    pub user_name: String,
+    pub pass: String
+}
+
 
 #[derive(Serialize, Deserialize)]
 pub struct RemoveUser {

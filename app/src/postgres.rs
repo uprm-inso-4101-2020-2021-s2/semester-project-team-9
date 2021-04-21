@@ -1,4 +1,4 @@
-use crate::models::{CustomSubscriptionService, SubscriptionService, User};
+use crate::models::*;
 use deadpool_postgres::Client;
 use std::io;
 use tokio_pg_mapper::FromTokioPostgresRow;
@@ -200,5 +200,26 @@ pub async fn check_users(client: &Client, username: String, id: String) -> Resul
     match result {
         ref updated if *updated == 1 => Ok(true),
         _ => Ok(false),
+    }
+}
+
+pub async fn user_exists(client: &Client, username: String) -> Result<User, io::Error> {
+    let query = "select * from users where user_name = $1";
+
+    let statement = client.prepare(query).await.unwrap();
+
+    let user = client
+        .query(&statement, &[&username])
+        .await
+        .expect("error getting user")
+        .iter()
+        .map(|row| User::from_row_ref(row).unwrap())
+        .collect::<Vec<User>>()
+        .pop()
+        .ok_or(io::Error::new(io::ErrorKind::Other, "error getting users"));
+
+    match user {
+        Ok(_) => Ok(user.expect("error getting users")),
+        Err(_) => Ok(user.expect("error getting users"))
     }
 }

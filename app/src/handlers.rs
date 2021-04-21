@@ -132,30 +132,6 @@ pub async fn get_users(db_pool: web::Data<Pool>) -> impl Responder {
     }
 }
 
-pub async fn add_user(db_pool: web::Data<Pool>, json: web::Json<AddUser>) -> impl Responder {
-    let client: Client = db_pool
-        .get()
-        .await
-        .expect("error connecting to the database");
-
-    let email = json.email.clone();
-    let firstname = json.first_name.clone();
-    let lastname = json.last_name.clone();
-    let username = json.user_name.clone();
-    let password = json.password.clone();
-    let id = json.id.clone();
-    let checked = json.checked.clone();
-
-    let result = postgres::add_user(
-        &client, id, email, firstname, lastname, username, password, checked,
-    )
-    .await;
-    match result {
-        Ok(user) => HttpResponse::Ok().json(user),
-        Err(_) => HttpResponse::InternalServerError().into(),
-    }
-}
-
 pub async fn rm_user(db_pool: web::Data<Pool>, json: web::Json<RemoveUser>) -> impl Responder {
     let client: Client = db_pool
         .get()
