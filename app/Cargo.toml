@@ -14,6 +14,7 @@ dotenv = "0.15.0"
 config = "0.10.1"
 pwhash = "1"
 json = "*"
+actix-cors = "0.5.4"
 
 #postgresql
 tokio-pg-mapper = "0.1.4"

@@ -4,6 +4,7 @@ mod models;
 mod postgres;
 mod auth;
 
+use actix_cors::Cors;
 use crate::config::Config;
 use crate::handlers::*;
 use crate::auth::{register, login};
@@ -21,11 +22,14 @@ async fn main() -> io::Result<()> {
     let pool = config.pg.create_pool(NoTls).unwrap();
 
     println!(
-        "Starting server at http://{}:{}",
+        "Starting server at http://{}:{}",  
         config.server.host, config.server.port
     );
 
     HttpServer::new(move || {
+
+        Cors::default().allowed_origin("*");
+
         App::new()
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
