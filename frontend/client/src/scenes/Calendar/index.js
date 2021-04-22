@@ -50,7 +50,7 @@ function monthCellRender(value) {
     </div>
   ) : null;
 }
-function Calendar() {
+function CalendarShown() {
   return (
     <>
       <Calendar
@@ -61,4 +61,4 @@ function Calendar() {
     </>
   );
 }
-export default Calendar;
+export default CalendarShown;

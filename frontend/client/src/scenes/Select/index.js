@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Row, Col } from "antd";
 import Sports from "./Categories/Sports";
 import Entertainment from "./Categories/Entertainment";
+
+import axios from "axios";
+
 const { TabPane } = Tabs;
 
 function Select() {
+  const [services, setServices] = useState();
+  const getData = () => {
+    fetch("http://127.0.0.1:8080/get-services")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+  useEffect(() => {
+    getData();
+  });
+  console.log(services);
   return (
     <>
       <Tabs tabPosition="left" tabBarGutter={50} size="large">
