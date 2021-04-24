@@ -26,7 +26,6 @@ function Sports() {
   };
 
   const onOpenChange = (keys) => {
-    setValue(1);
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -34,6 +33,7 @@ function Sports() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
 
   const cardGenerator = ({
     color = "",
@@ -43,6 +43,10 @@ function Sports() {
     sub = "",
     height = "",
     title = "",
+    price1 = 0,
+    price2 = 0,
+    price3 = 0,
+    price4 = 0,
   }) => (
     <Col xs={24} md={md}>
       <Card
@@ -61,16 +65,16 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-                5.99$
+              {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
-                24.99$
+                {price2}
               </Radio>
               <Radio style={radioStyle} value={3}>
-                39.99$
+                {price3}
               </Radio>
               <Radio style={radioStyle} value={4}>
-                119.99$
+                {price4}
               </Radio>
             </Radio.Group>
           </SubMenu>
@@ -91,6 +95,10 @@ function Sports() {
           height: "332.05px",
           value: value,
           title: "ESPN+",
+          price1: "$5.99",
+          price2: "$13.99",
+          price3: "$18.97",
+          price4: "$59.99",
         })}
         {cardGenerator({
           color: "#19E038",
@@ -99,6 +107,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "NBC Sports",
+          price1: "$4.99",
+          price2: "$5.99",
+          price3: "$9.99",
+          price4: "$34.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
@@ -107,6 +119,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "NFL Gamepass",
+          price1: "$8.33",
+          price2: "$24.99",
+          price3: "$49.99",
+          price4: "$99.99",
         })}
 
         {cardGenerator({
@@ -115,6 +131,10 @@ function Sports() {
           sub: "sub4",
           value: value,
           title: "NBA League Pass",
+          price1: "$5.99",
+          price2: "$59.99",
+          price3: "$119.99",
+          price4: "$199.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
@@ -122,6 +142,10 @@ function Sports() {
           sub: "sub5",
           value: value,
           title: "Fubo TV",
+          price1: "$6.99",
+          price2: "$29.99",
+          price3: "$64.99",
+          price4: "$79.99",
         })}
         {cardGenerator({
           color: "#FA19FF",
@@ -129,6 +153,10 @@ function Sports() {
           sub: "sub6",
           value: value,
           title: "DAZN",
+          price1: "$19.99",
+          price2: "$39.99",
+          price3: "$59.99",
+          price4: "$99.99",
         })}
       </Row>
     </div>

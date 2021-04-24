@@ -6,9 +6,9 @@ import "antd/dist/antd.css";
 
 const { SubMenu } = Menu;
 
-const rootSubmenuKeys = ["sub1"];
+const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Select() {
+function Entertainment() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -42,6 +42,10 @@ function Select() {
     sub = "",
     height = "",
     title = "",
+    price1 = 0,
+    price2 = 0,
+    price3 = 0,
+    price4 = 0,
   }) => (
     <Col xs={24} md={md}>
       <Card
@@ -60,16 +64,16 @@ function Select() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-                7.99$
+              {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
-                11.99$
+                {price2}
               </Radio>
               <Radio style={radioStyle} value={3}>
-                14.99$
+                {price3}
               </Radio>
               <Radio style={radioStyle} value={4}>
-                19.99$
+                {price4}
               </Radio>
             </Radio.Group>
           </SubMenu>
@@ -90,6 +94,10 @@ function Select() {
           height: "332.05px",
           value: value,
           title: "Netflix",
+          price1: "$8.99",
+          price2: "$13.99",
+          price3: "$17.99",
+          price4: "$48.99",
         })}
         {cardGenerator({
           color: "#19E038",
@@ -97,6 +105,10 @@ function Select() {
           sub: "sub2",
           value: value,
           title: "Hulu",
+          price1: "$5.99",
+          price2: "$11.99",
+          price3: "$64.99",
+          price4: "$70.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
@@ -105,6 +117,10 @@ function Select() {
           value: value,
           height: "332.05px",
           title: "Spotify",
+          price1: "$4.99",
+          price2: "$9.99",
+          price3: "$12.99",
+          price4: "$14.99",
         })}
 
         {cardGenerator({
@@ -113,6 +129,10 @@ function Select() {
           sub: "sub4",
           value: value,
           title: "Prime Video",
+          price1: "$5.99",
+          price2: "$6.49",
+          price3: "$8.99",
+          price4: "$12.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
@@ -120,6 +140,10 @@ function Select() {
           sub: "sub5",
           value: value,
           title: "HBO Max",
+          price1: "$14.99",
+          price2: "$44.97",
+          price3: "$89.94",
+          price4: "$179.88",
         })}
         {cardGenerator({
           color: "#FA19FF",
@@ -127,10 +151,14 @@ function Select() {
           sub: "sub6",
           value: value,
           title: "Disney+",
+          price1: "$7.99",
+          price2: "$13.99",
+          price3: "$19.99",
+          price4: "$72.99",
         })}
       </Row>
     </div>
   );
 }
 
-export default Select;
+export default Entertainment;

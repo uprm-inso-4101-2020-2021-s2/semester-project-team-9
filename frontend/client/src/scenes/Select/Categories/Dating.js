@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Sports() {
+function Dating() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -26,7 +26,6 @@ function Sports() {
   };
 
   const onOpenChange = (keys) => {
-    setValue(1);
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -34,6 +33,7 @@ function Sports() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
 
   const cardGenerator = ({
     color = "",
@@ -43,6 +43,10 @@ function Sports() {
     sub = "",
     height = "",
     title = "",
+    price1 = 0,
+    price2 = 0,
+    price3 = 0,
+    price4 = 0,
   }) => (
     <Col xs={24} md={md}>
       <Card
@@ -61,16 +65,16 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-                5.99$
+              {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
-                24.99$
+                {price2}
               </Radio>
               <Radio style={radioStyle} value={3}>
-                39.99$
+                {price3}
               </Radio>
               <Radio style={radioStyle} value={4}>
-                119.99$
+                {price4}
               </Radio>
             </Radio.Group>
           </SubMenu>
@@ -91,6 +95,10 @@ function Sports() {
           height: "332.05px",
           value: value,
           title: "Elite Singles Premium",
+          price1: "$44.95",
+          price2: "$57.95",
+          price3: "$59.95",
+          price4: "$173.85",
         })}
         {cardGenerator({
           color: "#19E038",
@@ -99,6 +107,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "The League Regular",
+          price1: "$0.00",
+          price2: "$66.99",
+          price3: "$98.99",
+          price4: "$199.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
@@ -107,6 +119,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "The League Premium",
+          price1: "$298.99",
+          price2: "$398.99",
+          price3: "$399.99",
+          price4: "$999.99",
         })}
 
         {cardGenerator({
@@ -115,6 +131,10 @@ function Sports() {
           sub: "sub4",
           value: value,
           title: "Tinder Gold",
+          price1: "$0.00",
+          price2: "$6.62",
+          price3: "$8.83",
+          price4: "$14.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
@@ -122,6 +142,10 @@ function Sports() {
           sub: "sub5",
           value: value,
           title: "Tinder Premium",
+          price1: "$0.00",
+          price2: "$2.33",
+          price3: "$3.00",
+          price4: "$4.99",
         })}
         {cardGenerator({
           color: "#FA19FF",
@@ -129,10 +153,14 @@ function Sports() {
           sub: "sub6",
           value: value,
           title: "Farmers Only Premium",
+          price1: "$9.99",
+          price2: "$13.99",
+          price3: "$16.65",
+          price4: "$27.95",
         })}
       </Row>
     </div>
   );
 }
 
-export default Sports;
+export default Dating;

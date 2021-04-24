@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Sports() {
+function Education() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -26,7 +26,6 @@ function Sports() {
   };
 
   const onOpenChange = (keys) => {
-    setValue(1);
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -34,6 +33,7 @@ function Sports() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
 
   const cardGenerator = ({
     color = "",
@@ -43,6 +43,10 @@ function Sports() {
     sub = "",
     height = "",
     title = "",
+    price1 = 0,
+    price2 = 0,
+    price3 = 0,
+    price4 = 0,
   }) => (
     <Col xs={24} md={md}>
       <Card
@@ -61,16 +65,16 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-                5.99$
+              {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
-                24.99$
+                {price2}
               </Radio>
               <Radio style={radioStyle} value={3}>
-                39.99$
+                {price3}
               </Radio>
               <Radio style={radioStyle} value={4}>
-                119.99$
+                {price4}
               </Radio>
             </Radio.Group>
           </SubMenu>
@@ -91,6 +95,10 @@ function Sports() {
           height: "332.05px",
           value: value,
           title: "Chegg",
+          price1: "$9.95",
+          price2: "$9.99",
+          price3: "$14.95",
+          price4: "$19.95",
         })}
         {cardGenerator({
           color: "#19E038",
@@ -99,6 +107,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "Coursera",
+          price1: "$33.25",
+          price2: "$38.99",
+          price3: "$88.99",
+          price4: "$398.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
@@ -107,6 +119,10 @@ function Sports() {
           value: value,
           height: "332.05px",
           title: "Course Hero",
+          price1: "$9.95",
+          price2: "$19.95",
+          price3: "$39.95",
+          price4: "$119.40",
         })}
 
         {cardGenerator({
@@ -115,6 +131,10 @@ function Sports() {
           sub: "sub4",
           value: value,
           title: "Codeacademy",
+          price1: "$0.00",
+          price2: "$19.99",
+          price3: "$39.99",
+          price4: "$119.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
@@ -122,10 +142,14 @@ function Sports() {
           sub: "sub5",
           value: value,
           title: "Udacity",
+          price1: "$399.00",
+          price2: "$1017.00",
+          price3: "$1356.00",
+          price4: "$1695.00",
         })}
       </Row>
     </div>
   );
 }
 
-export default Sports;
+export default Education;
