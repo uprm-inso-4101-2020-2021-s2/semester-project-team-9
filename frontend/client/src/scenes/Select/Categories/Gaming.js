@@ -74,9 +74,90 @@ function Sports() {
               </Radio>
             </Radio.Group>
           </SubMenu>
+           <SubMenu key={"sub2"} title={title}>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio style={radioStyle} value={1}>
+                5.99$
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                24.99$
+              </Radio>
+              <Radio style={radioStyle} value={3}>
+                39.99$
+              </Radio>
+              <Radio style={radioStyle} value={4}>
+                129.99$
+              </Radio>
+            </Radio.Group>
+          </SubMenu>
+          <SubMenu key={"sub3"} title={title}>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio style={radioStyle} value={1}>
+                5.99$
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                24.99$
+              </Radio>
+              <Radio style={radioStyle} value={3}>
+                39.99$
+              </Radio>
+              <Radio style={radioStyle} value={4}>
+                139.99$
+              </Radio>
+            </Radio.Group>
+          </SubMenu>
+          <SubMenu key={"sub4"} title={title}>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio style={radioStyle} value={1}>
+                5.99$
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                24.99$
+              </Radio>
+              <Radio style={radioStyle} value={3}>
+                39.99$
+              </Radio>
+              <Radio style={radioStyle} value={4}>
+                149.99$
+              </Radio>
+            </Radio.Group>
+          </SubMenu>
+          <SubMenu key={"sub5"} title={title}>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio style={radioStyle} value={1}>
+                5.99$
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                24.99$
+              </Radio>
+              <Radio style={radioStyle} value={3}>
+                39.99$
+              </Radio>
+              <Radio style={radioStyle} value={4}>
+                159.99$
+              </Radio>
+            </Radio.Group>
+          </SubMenu>
+          <SubMenu key={"sub6"} title={title}>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio style={radioStyle} value={1}>
+                5.99$
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                24.99$
+              </Radio>
+              <Radio style={radioStyle} value={3}>
+                39.99$
+              </Radio>
+              <Radio style={radioStyle} value={4}>
+                169.99$
+              </Radio>
+            </Radio.Group>
+           </SubMenu>
         </Menu>
       </Card>
     </Col>
+    
   );
   return (
     <div className="Select">
