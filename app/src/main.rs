@@ -3,17 +3,17 @@ mod handlers;
 mod models;
 mod postgres;
 mod auth;
-
+  
 use actix_cors::Cors;
 use crate::config::Config;
 use crate::handlers::*;
 use crate::auth::{register, login};
-use actix_web::{web, App, HttpServer};
+use actix_web::{web, App,HttpServer};
 use dotenv::dotenv;
 use std::io;
 use tokio_postgres::NoTls;
 
-#[actix_rt::main]
+#[actix_web::main]
 async fn main() -> io::Result<()> {
     dotenv().ok();
 
@@ -26,11 +26,12 @@ async fn main() -> io::Result<()> {
         config.server.host, config.server.port
     );
 
+
+    
     HttpServer::new(move || {
-
-        Cors::default().allowed_origin("*");
-
+        let cors = Cors::default().allow_any_origin();
         App::new()
+        .wrap(cors)
             .data(pool.clone())
             .route("/", web::get().to(handlers::status))
             .route("/get-services{_:/?}", web::get().to(get_services))
