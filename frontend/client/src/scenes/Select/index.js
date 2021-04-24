@@ -2,22 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Tabs, Row, Col } from "antd";
 import Sports from "./Categories/Sports";
 import Entertainment from "./Categories/Entertainment";
+import apiData from "../././../Services/getUsers";
 
-import axios from "axios";
+import useService from "../../hooks/useService";
 
 const { TabPane } = Tabs;
 
 function Select() {
   const [services, setServices] = useState();
-  const getData = () => {
-    fetch("http://127.0.0.1:8080/get-services")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
+  const { callService } = useService();
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    getData();
-  });
-  console.log(services);
+    if (isLoading) {
+      callService(apiData.getServices())
+        .then((response) => {
+          setServices(response?.data ?? "");
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          return error;
+        });
+    }
+  }, [isLoading]);
+  console.log(services && services);
+
+  console.log(services && JSON.parse(services[0].plans));
   return (
     <>
       <Tabs tabPosition="left" tabBarGutter={50} size="large">

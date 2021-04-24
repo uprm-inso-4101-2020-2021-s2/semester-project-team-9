@@ -1,13 +1,11 @@
 import Http from "./Http";
 
-const endpoint = "get-services";
-
 export default {
   /**
    * List Patients
    * @return {Http} GET to /Patients
    */
-  getPatients() {
-    return Http.get(endpoint);
+  getServices() {
+    return Http.get("http://127.0.0.1:8080/get-services");
   },
 };
