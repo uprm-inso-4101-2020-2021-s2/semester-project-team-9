@@ -34,7 +34,6 @@ function Sports() {
     }
   };
 
-
   const cardGenerator = ({
     color = "",
     image = "",
@@ -65,7 +64,7 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-              {price1}
+                {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
                 {price2}

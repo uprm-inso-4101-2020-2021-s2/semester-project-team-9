@@ -8,7 +8,13 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Gaming() {
+function Gaming({ services }) {
+  console.log(services && JSON.parse(services[15].plans));
+  const PlayStation = JSON.parse(services[15].plans);
+  const XboX = JSON.parse(services[16].plans);
+  const EA = JSON.parse(services[17].plans);
+
+  console.log(PlayStation["1 Month"]);
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -45,7 +51,6 @@ function Gaming() {
     price1 = 0,
     price2 = 0,
     price3 = 0,
-    price4 = 0,
   }) => (
     <Col xs={24} md={md}>
       <Card
@@ -72,9 +77,6 @@ function Gaming() {
               <Radio style={radioStyle} value={3}>
                 {price3}
               </Radio>
-              <Radio style={radioStyle} value={4}>
-                {price4}
-              </Radio>
             </Radio.Group>
           </SubMenu>
         </Menu>
@@ -94,10 +96,9 @@ function Gaming() {
           height: "332.05px",
           value: value,
           title: "Playstation+",
-          price1: "$4.99",
-          price2: "$8.33",
-          price3: "$9.99",
-          price4: "$59.99",
+          price1: PlayStation["1 Month"] + "$",
+          price2: PlayStation["3 Months"] + "$",
+          price3: "4.99$",
         })}
         {cardGenerator({
           color: "#19E038",
@@ -106,10 +107,9 @@ function Gaming() {
           value: value,
           height: "332.05px",
           title: "XBOX Live Gold",
-          price1: "$4.99",
-          price2: "$8.33",
-          price3: "$9.99",
-          price4: "$59.99",
+          price1: XboX["1 Month"] + "$",
+          price2: XboX["3 Months"] + "$",
+          price3: XboX["12 Months"] + "$",
         })}
         {cardGenerator({
           color: "#19BCE0",
