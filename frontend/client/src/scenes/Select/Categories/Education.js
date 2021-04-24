@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Sports() {
+function Education() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -90,77 +90,66 @@ function Sports() {
       <Row gutter={[32, 32]}>
         {cardGenerator({
           color: "#FF0000",
-          image: "/images/ESPN+.jpg",
+          image: "/images/Chegg_logo.png",
           sub: "sub1",
           height: "332.05px",
           value: value,
-          title: "ESPN+",
-          price1: "$5.99",
-          price2: "$13.99",
-          price3: "$18.97",
-          price4: "$59.99",
+          title: "Chegg",
+          price1: "$9.95",
+          price2: "$9.99",
+          price3: "$14.95",
+          price4: "$19.95",
         })}
         {cardGenerator({
           color: "#19E038",
-          image: "/images/NBC_Sports_logo.png",
+          image: "/images/coursera-logo.png",
           sub: "sub2",
           value: value,
           height: "332.05px",
-          title: "NBC Sports",
-          price1: "$4.99",
-          price2: "$5.99",
-          price3: "$9.99",
-          price4: "$34.99",
+          title: "Coursera",
+          price1: "$33.25",
+          price2: "$38.99",
+          price3: "$88.99",
+          price4: "$398.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
-          image: "/images/NFL-Gamepass-Logo.png",
+          image: "/images/coursehero_logo.png",
           sub: "sub3",
           value: value,
           height: "332.05px",
-          title: "NFL Gamepass",
-          price1: "$8.33",
-          price2: "$24.99",
-          price3: "$49.99",
-          price4: "$99.99",
+          title: "Course Hero",
+          price1: "$9.95",
+          price2: "$19.95",
+          price3: "$39.95",
+          price4: "$119.40",
         })}
 
         {cardGenerator({
           color: "#0D4FB2",
-          image: "/images/NBA-League-Pass.jpg",
+          image: "/images/Courseacademy.jpeg",
           sub: "sub4",
           value: value,
-          title: "NBA League Pass",
-          price1: "$5.99",
-          price2: "$59.99",
-          price3: "$119.99",
-          price4: "$199.99",
+          title: "Codeacademy",
+          price1: "$0.00",
+          price2: "$19.99",
+          price3: "$39.99",
+          price4: "$119.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
-          image: "/images/fubotv-logo.png",
+          image: "/images/Udacity_logo.png",
           sub: "sub5",
           value: value,
-          title: "Fubo TV",
-          price1: "$6.99",
-          price2: "$29.99",
-          price3: "$64.99",
-          price4: "$79.99",
-        })}
-        {cardGenerator({
-          color: "#FA19FF",
-          image: "/images/DAZN-Logo-0.png",
-          sub: "sub6",
-          value: value,
-          title: "DAZN",
-          price1: "$19.99",
-          price2: "$39.99",
-          price3: "$59.99",
-          price4: "$99.99",
+          title: "Udacity",
+          price1: "$399.00",
+          price2: "$1017.00",
+          price3: "$1356.00",
+          price4: "$1695.00",
         })}
       </Row>
     </div>
   );
 }
 
-export default Sports;
+export default Education;

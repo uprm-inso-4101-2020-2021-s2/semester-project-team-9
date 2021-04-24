@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Sports() {
+function Gaming() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -33,7 +33,6 @@ function Sports() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-
 
   const cardGenerator = ({
     color = "",
@@ -65,7 +64,7 @@ function Sports() {
           <SubMenu key={sub} title={title}>
             <Radio.Group onChange={onChange} value={value}>
               <Radio style={radioStyle} value={1}>
-              {price1}
+                {price1}
               </Radio>
               <Radio style={radioStyle} value={2}>
                 {price2}
@@ -90,77 +89,77 @@ function Sports() {
       <Row gutter={[32, 32]}>
         {cardGenerator({
           color: "#FF0000",
-          image: "/images/ESPN+.jpg",
+          image: "/images/PS_plus_logo.png",
           sub: "sub1",
           height: "332.05px",
           value: value,
-          title: "ESPN+",
-          price1: "$5.99",
-          price2: "$13.99",
-          price3: "$18.97",
+          title: "Playstation+",
+          price1: "$4.99",
+          price2: "$8.33",
+          price3: "$9.99",
           price4: "$59.99",
         })}
         {cardGenerator({
           color: "#19E038",
-          image: "/images/NBC_Sports_logo.png",
+          image: "/images/Xbox-Live-Gold.png",
           sub: "sub2",
           value: value,
           height: "332.05px",
-          title: "NBC Sports",
+          title: "XBOX Live Gold",
           price1: "$4.99",
-          price2: "$5.99",
+          price2: "$8.33",
           price3: "$9.99",
-          price4: "$34.99",
+          price4: "$59.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
-          image: "/images/NFL-Gamepass-Logo.png",
+          image: "/images/Nintendo_Switch_Online_logo.png",
           sub: "sub3",
           value: value,
           height: "332.05px",
-          title: "NFL Gamepass",
-          price1: "$8.33",
-          price2: "$24.99",
-          price3: "$49.99",
-          price4: "$99.99",
+          title: "Nintendo Switch Online",
+          price1: "$3.99",
+          price2: "$7.99",
+          price3: "$19.99",
+          price4: "$34.99",
         })}
 
         {cardGenerator({
           color: "#0D4FB2",
-          image: "/images/NBA-League-Pass.jpg",
+          image: "/images/Xbox_Game_Pass_new_logo-colored_version.png",
           sub: "sub4",
           value: value,
-          title: "NBA League Pass",
-          price1: "$5.99",
-          price2: "$59.99",
-          price3: "$119.99",
-          price4: "$199.99",
+          title: "XBOX Gamepass",
+          price1: "$0.99",
+          price2: "$4.99",
+          price3: "$9.99",
+          price4: "$14.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
-          image: "/images/fubotv-logo.png",
+          image: "/images/EA-Play-Logo.png",
           sub: "sub5",
           value: value,
-          title: "Fubo TV",
-          price1: "$6.99",
-          price2: "$29.99",
-          price3: "$64.99",
-          price4: "$79.99",
+          title: "EA Play",
+          price1: "$2.49",
+          price2: "$4.99",
+          price3: "$8.33",
+          price4: "$14.99",
         })}
         {cardGenerator({
           color: "#FA19FF",
-          image: "/images/DAZN-Logo-0.png",
+          image: "/images/Origin.jpg",
           sub: "sub6",
           value: value,
-          title: "DAZN",
-          price1: "$19.99",
-          price2: "$39.99",
-          price3: "$59.99",
-          price4: "$99.99",
+          title: "Origin",
+          price1: "$2.49",
+          price2: "$4.99",
+          price3: "$8.33",
+          price4: "$14.99",
         })}
       </Row>
     </div>
   );
 }
 
-export default Sports;
+export default Gaming;

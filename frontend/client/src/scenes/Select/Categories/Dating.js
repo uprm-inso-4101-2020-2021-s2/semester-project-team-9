@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 const rootSubmenuKeys = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"];
 
-function Sports() {
+function Dating() {
   const [openKeys, setOpenKeys] = React.useState([
     ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6"],
   ]);
@@ -90,77 +90,77 @@ function Sports() {
       <Row gutter={[32, 32]}>
         {cardGenerator({
           color: "#FF0000",
-          image: "/images/ESPN+.jpg",
+          image: "/images/Elite-Singles.jpg",
           sub: "sub1",
           height: "332.05px",
           value: value,
-          title: "ESPN+",
-          price1: "$5.99",
-          price2: "$13.99",
-          price3: "$18.97",
-          price4: "$59.99",
+          title: "Elite Singles Premium",
+          price1: "$44.95",
+          price2: "$57.95",
+          price3: "$59.95",
+          price4: "$173.85",
         })}
         {cardGenerator({
           color: "#19E038",
-          image: "/images/NBC_Sports_logo.png",
+          image: "/images/The-League-Regular.jpg",
           sub: "sub2",
           value: value,
           height: "332.05px",
-          title: "NBC Sports",
-          price1: "$4.99",
-          price2: "$5.99",
-          price3: "$9.99",
-          price4: "$34.99",
+          title: "The League Regular",
+          price1: "$0.00",
+          price2: "$66.99",
+          price3: "$98.99",
+          price4: "$199.99",
         })}
         {cardGenerator({
           color: "#19BCE0",
-          image: "/images/NFL-Gamepass-Logo.png",
+          image: "/images/The-league-premium-logo.png",
           sub: "sub3",
           value: value,
           height: "332.05px",
-          title: "NFL Gamepass",
-          price1: "$8.33",
-          price2: "$24.99",
-          price3: "$49.99",
-          price4: "$99.99",
+          title: "The League Premium",
+          price1: "$298.99",
+          price2: "$398.99",
+          price3: "$399.99",
+          price4: "$999.99",
         })}
 
         {cardGenerator({
           color: "#0D4FB2",
-          image: "/images/NBA-League-Pass.jpg",
+          image: "/images/tinder-gold.png",
           sub: "sub4",
           value: value,
-          title: "NBA League Pass",
-          price1: "$5.99",
-          price2: "$59.99",
-          price3: "$119.99",
-          price4: "$199.99",
+          title: "Tinder Gold",
+          price1: "$0.00",
+          price2: "$6.62",
+          price3: "$8.83",
+          price4: "$14.99",
         })}
         {cardGenerator({
           color: "#0DA8B2",
-          image: "/images/fubotv-logo.png",
+          image: "/images/tinder-premium-logo.png",
           sub: "sub5",
           value: value,
-          title: "Fubo TV",
-          price1: "$6.99",
-          price2: "$29.99",
-          price3: "$64.99",
-          price4: "$79.99",
+          title: "Tinder Premium",
+          price1: "$0.00",
+          price2: "$2.33",
+          price3: "$3.00",
+          price4: "$4.99",
         })}
         {cardGenerator({
           color: "#FA19FF",
-          image: "/images/DAZN-Logo-0.png",
+          image: "/images/Farmer's-Only-logo.png",
           sub: "sub6",
           value: value,
-          title: "DAZN",
-          price1: "$19.99",
-          price2: "$39.99",
-          price3: "$59.99",
-          price4: "$99.99",
+          title: "Farmers Only Premium",
+          price1: "$9.99",
+          price2: "$13.99",
+          price3: "$16.65",
+          price4: "$27.95",
         })}
       </Row>
     </div>
   );
 }
 
-export default Sports;
+export default Dating;

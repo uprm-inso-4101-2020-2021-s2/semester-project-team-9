@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Row, Col } from "antd";
-import Sports from "./Categories/Sports";
+import Dating from "./Categories/Dating";
+import Education from "./Categories/Education";
 import Entertainment from "./Categories/Entertainment";
+import Gaming from "./Categories/Gaming";
+import Sports from "./Categories/Sports";
 import apiData from "../././../Services/getUsers";
 
 import useService from "../../hooks/useService";
@@ -32,15 +35,21 @@ function Select() {
   return (
     <>
       <Tabs tabPosition="left" tabBarGutter={50} size="large">
-        <TabPane tab="Sports" key="1">
-          <Sports />
+        <TabPane tab="Dating" key="1">
+          <Dating />
         </TabPane>
-        <TabPane tab="Entertainment" key="2">
+        <TabPane tab="Education" key="2">
+          <Education />
+        </TabPane>
+        <TabPane tab="Entertainment" key="3">
           <Entertainment />
         </TabPane>
-        {/* <TabPane tab="Other" key="3">
-          Content of Tab 3
-        </TabPane> */}
+        <TabPane tab="Gaming" key="4">
+          <Gaming services={services} />
+        </TabPane>
+        <TabPane tab="Sports" key="5">
+          <Sports />
+        </TabPane>
       </Tabs>
     </>
   );
