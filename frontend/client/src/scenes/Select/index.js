@@ -5,7 +5,7 @@ import Education from "./Categories/Education";
 import Entertainment from "./Categories/Entertainment";
 import Gaming from "./Categories/Gaming";
 import Sports from "./Categories/Sports";
-import apiData from "../././../Services/getUsers";
+import apiData from "../../Services/getServices";
 
 import useService from "../../hooks/useService";
 

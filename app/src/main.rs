@@ -8,7 +8,7 @@ use actix_cors::Cors;
 use crate::config::Config;
 use crate::handlers::*;
 use crate::auth::{register, login};
-use actix_web::{web, App,HttpServer};
+use actix_web::{get, http, web, App, HttpRequest, HttpResponse, HttpServer};
 use dotenv::dotenv;
 use std::io;
 use tokio_postgres::NoTls;
@@ -29,7 +29,13 @@ async fn main() -> io::Result<()> {
 
     
     HttpServer::new(move || {
-        let cors = Cors::default().allow_any_origin();
+        let cors = Cors::default()
+        .allow_any_origin()
+        .allowed_methods(vec!["GET", "POST"])
+        .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
+        .allowed_header(http::header::CONTENT_TYPE)
+        .max_age(3600);
+
         App::new()
         .wrap(cors)
             .data(pool.clone())

@@ -3,9 +3,12 @@ import { Tabs } from "antd";
 import Select from "../Select";
 import Profile from "../Profile";
 import Calendar from "../Calendar";
+import UseLoggedUser from "../../hooks/useLoggedUser";
 const { TabPane } = Tabs;
 
 function Home() {
+  console.log(UseLoggedUser());
+
   return (
     <>
       <Tabs tabPosition="top" tabBarGutter={50} size="large">
