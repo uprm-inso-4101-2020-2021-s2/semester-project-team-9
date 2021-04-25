@@ -7,12 +7,13 @@ mod auth;
 use actix_cors::Cors;
 use crate::config::Config;
 use crate::handlers::*;
-use actix_web::{get, http, web, App, HttpRequest, HttpResponse, HttpServer};
+use crate::auth::{register, login};
+use actix_web::{web, App,HttpServer};
 use dotenv::dotenv;
 use std::io;
 use tokio_postgres::NoTls;
 
-#[actix_rt::main]
+#[actix_web::main]
 async fn main() -> io::Result<()> {
     dotenv().ok();
 
@@ -28,13 +29,7 @@ async fn main() -> io::Result<()> {
 
     
     HttpServer::new(move || {
-        let cors = Cors::default()
-            .allow_any_origin()
-            .allowed_methods(vec!["GET", "POST"])
-            .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
-            .allowed_header(http::header::CONTENT_TYPE)
-            .max_age(3600);
-
+        let cors = Cors::default().allow_any_origin();
         App::new()
         .wrap(cors)
             .data(pool.clone())
@@ -48,7 +43,8 @@ async fn main() -> io::Result<()> {
             .route("/get-users{_:/?}", web::get().to(get_users))
             .route("/rm-user{_:/?}", web::post().to(rm_user))
             .route("/check-user{_:/?}", web::put().to(check_users))
-
+            .route("/register{_:/?}", web::post().to(register))
+            .route("/login{_:/?}", web::post().to(login))
     })
     .bind(format!("{}:{}", config.server.host, config.server.port))?
     .run()
