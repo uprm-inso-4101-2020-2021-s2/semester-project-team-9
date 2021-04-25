@@ -7,11 +7,14 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-actix-web = "2.0"
+actix-web = "3.3.2"
 actix-rt = "1.1.1"
 serde = { version = "1.0",features = ["derive"]}
 dotenv = "0.15.0"
-config = "0.10.1"
+config = "0.11.0"
+pwhash = "1"
+json = "*"
+actix-cors = "0.5.4"
 
 #postgresql
 tokio-pg-mapper = "0.1.4"

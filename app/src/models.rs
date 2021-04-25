@@ -1,27 +1,95 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use tokio_pg_mapper_derive::PostgresMapper;
 
 #[derive(Serialize)]
-pub struct Status{
+pub struct Status {
     pub status: String,
 }
 
-//For the moment leave comment so no warnings appears, when constructed, uncomment. -RVB
-#[derive(Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table="subscription_service")]
+#[derive(Clone, Serialize, Deserialize, PostgresMapper)]
+#[pg_mapper(table = "subscription_services")]
 pub struct SubscriptionService {
-    pub id: i32,
     pub service_name: String,
     pub service_url: String,
     pub category: String,
-    pub plans: String
+    pub plans: String,
 }
 
 #[derive(Serialize, Deserialize, PostgresMapper)]
-#[pg_mapper(table="user")]
+#[pg_mapper(table = "custom_unique_services")]
+pub struct CustomSubscriptionService {
+    pub owner_id: String,
+    pub service_name: String,
+    pub service_url: String,
+    pub category: String,
+    pub plans: String,
+    
+}
+
+#[derive(Serialize, Deserialize, PostgresMapper)]
+#[pg_mapper(table = "users")]
 pub struct User {
-    pub id: i32,
-    pub name: String,
+    pub id: String, //must be a unique id
+    pub email: String,
+    pub first_name: String,
+    pub last_name: String,
+    pub user_name: String,
     pub password: String,
-    pub subscriptions: String,
+    pub checked: bool,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct CreateService {
+    pub service_name: String,
+    pub service_url: String,
+    pub category: String,
+    pub plans: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveCustomService {
+    pub service_name: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct OwnerId {
+    pub id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveService {
+    pub service_name: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct AddUser {
+    pub email: String,
+    pub first_name: String,
+    pub last_name: String,
+    pub user_name: String,
+    pub password: String,
+    pub checked: bool,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct LoginUser {
+    pub user_name: String,
+    pub pass: String
+}
+
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveUser {
+    pub user_name: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct CheckUser {
+    pub user_name: String,
+    pub id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct ResultResponse {
+    pub success: bool,
 }
