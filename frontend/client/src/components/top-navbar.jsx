@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import './top-navbar.css';
+import logo from '../subs-logo.png'
 import "bootstrap";
 import SignUpContainer from './Signup';
 import LogInContainer from './Login';
@@ -38,17 +39,17 @@ const TopNavBar = () => {
 
     return (
         <Fragment >
-            <div style={{ padding: "0.4vh", backgroundColor: "#2739d6" }}>
-                <a href="../public/index.html" class="bar-item" style={{ backgroundcolor: 'black' }}><h1>SUBSCRIPTION APP</h1></a>
+            <div style={{ padding: "0.2vh", backgroundColor: "#000000", width: '100%', display: 'block' }}>
+                <a href="../public/index.html" class="bar-item" style={{ color: "#fff", left: '5vw' }}><img alt='logo' src={logo} width="458" height="68" ></img></a>
 
-                <button type="button" id="login" onClick={() => toggleLog()}><i class="fa fa-user" style={{ color: 'blue', margin: '10px' }} >{buttonLName}</i></button >
+                <button type="button" id="login" onClick={() => toggleLog()} style={{ color: 'rgb(125, 145, 233)', margin: '15px', padding: '12px', fontWeight: 'bolder', fontVariant: 'all-small-caps', fontStretch: "semi-expanded" }}>{buttonLName}</button >
                 {!signUpIsOpen && logIsOpen && <LogInContainer />}
 
-                <button type="button" id="signup" onClick={() => toggleSign()} style={{ color: 'rgb(125, 145, 233)', margin: '10px' }} >{buttonSName}</button >
+                <button type="button" id="signup" onClick={() => toggleSign()} style={{ color: 'rgb(125, 145, 233)', margin: '15px', padding: '12px' }} >{buttonSName}</button >
                 {!logIsOpen && signUpIsOpen && <SignUpContainer />}
 
             </div>
-        </Fragment>
+        </Fragment >
     )
 
 }
