@@ -5,7 +5,8 @@ import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Descriptions, Badge } from "antd";
 
-function Profile() {
+function Profile(user) {
+  console.log(user);
   return (
     <>
       <Avatar size={128} icon={<UserOutlined />} />

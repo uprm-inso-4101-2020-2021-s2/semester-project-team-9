@@ -1,23 +1,28 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useContext} from 'react';
 import { NavLink } from 'react-router-dom';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import useService from "../../hooks/useService";
 import userService from "../../Services/userService";
 import useAuth from "../../hooks/userAuth"
+import userContext from "../../context/userContext";
 
 function LogIn() {
     const { onLogin } = useAuth();
-
+    const {loggedUser, updateLoggedUser} = useContext(userContext);
     const { callService } = useService();
     const [isLoading, setIsLoading] = useState(true);
 
     const onFinish = (values) => {
             callService(userService.login(values))
             .then(({ data }) => {
-                onLogin(data);
+                onLogin(data ?? []);
+                updateLoggedUser(data)
+                message.success("Logged In")
+
               })
                 .catch((error) => {
                 setIsLoading(false);
+                message.error("User not Registered")
                 return error;
                 });
             console.log('Success:', values);

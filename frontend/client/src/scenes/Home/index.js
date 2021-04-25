@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tabs } from "antd";
 import Select from "../Select";
 import Profile from "../Profile";
 import Calendar from "../Calendar";
-import UseLoggedUser from "../../hooks/useLoggedUser";
+import userContext from "../../context/userContext";
 const { TabPane } = Tabs;
 
 function Home() {
-  console.log(UseLoggedUser());
-
+  const { loggedUser, updateLoggedUser } = useContext(userContext);
+  console.log(loggedUser);
   return (
     <>
       <Tabs tabPosition="top" tabBarGutter={50} size="large">
@@ -19,7 +19,7 @@ function Home() {
           <Select />
         </TabPane>
         <TabPane tab="Profile" key="3">
-          <Profile />
+          <Profile user={loggedUser} />
         </TabPane>{" "}
         {/* <TabPane tab="Other" key="3">
           Content of Tab 3
