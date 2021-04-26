@@ -1792,6 +1792,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "subscription_manager"
+version = "0.1.0"
+dependencies = [
+ "actix-cors",
+ "actix-rt",
+ "actix-web",
+ "config",
+ "deadpool-postgres",
+ "dotenv",
+ "json",
+ "pwhash",
+ "serde 1.0.123",
+ "tokio-pg-mapper",
+ "tokio-pg-mapper-derive",
+ "tokio-postgres",
+]
+
+[[package]]
 name = "subtle"
 version = "2.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2174,24 +2192,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.72"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7148f4696fb4960a346eaa60bbfb42a1ac4ebba21f750f75fc1375b098d5ffa"
-
-[[package]]
-name = "web-server"
-version = "0.1.0"
-dependencies = [
- "actix-cors",
- "actix-rt",
- "actix-web",
- "config",
- "deadpool-postgres",
- "dotenv",
- "json",
- "pwhash",
- "serde 1.0.123",
- "tokio-pg-mapper",
- "tokio-pg-mapper-derive",
- "tokio-postgres",
-]
 
 [[package]]
 name = "widestring"

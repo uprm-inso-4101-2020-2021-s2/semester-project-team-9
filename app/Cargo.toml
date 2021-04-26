@@ -1,10 +1,14 @@
 [package]
-name = "web-server"
+name = "subscription_manager"
 version = "0.1.0"
-authors = ["FrancisPatron <Francis.patron1@upr.edu>"]
+authors = [ "Francis <francis.patron1@upr.edu>",
+            "Victor <victor.laureano@upr.edu>",
+            "Juan <juan.velazquez19@upr.edu>",
+            "Richard <richard.vazquez2@upr.edu>",
+            "Joshua <joshua.corretjer@upr.edu>",
+            "Genesis <genesis.borges@upr.edu>"
+            ]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 actix-web = "3.3.2"
@@ -15,8 +19,6 @@ config = "0.10.1"
 pwhash = "1"
 json = "*"
 actix-cors = "0.5.4"
-
-#postgresql
 tokio-pg-mapper = "0.1.4"
 tokio-pg-mapper-derive = "0.1.4"
 deadpool-postgres = "0.5.0"
