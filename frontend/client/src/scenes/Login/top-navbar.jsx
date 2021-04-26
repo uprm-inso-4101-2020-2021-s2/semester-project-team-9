@@ -33,8 +33,10 @@ const TopNavBar = () => {
 
 
     return (
-            <div style={{ padding: "0.4vh", backgroundColor: "#2739d6" }}>
-                <a href="../public/index.html" class="bar-item" style={{ backgroundcolor: 'black' }}><h1>SUBSCRIPTION APP</h1></a>
+        <div>
+
+            <div style={{ padding: "0.4vh", backgroundColor: "#cbcff8" }}>
+                <a href="../public/index.html" class="bar-item" style={{ backgroundcolor: 'black' }}><h1 style = {{textAlign:'center'}}>SUBSCRIPTION APP</h1></a>
 
                 <button type="button" id="login" onClick={() => toggleLog()}><i class="fa fa-user" style={{ color: 'blue', margin: '10px' }} >{buttonLName}</i></button >
                 {!signUpIsOpen && logIsOpen && <LogInContainer />}
@@ -42,6 +44,10 @@ const TopNavBar = () => {
                 <button type="button" id="signup" onClick={() => toggleSign()} style={{ color: 'rgb(125, 145, 233)', margin: '10px' }} >{buttonSName}</button >
                 {!logIsOpen && signUpIsOpen && <SignUpContainer />}
 
+            </div>
+            <div style = {{ alignContent:"center", textAlign: "center", margin: "auto",height:"1000px" , alignItems: "center", alignSelf: "center", position:"flex"}}>
+            <img src = "/images/logo.png" style = {{height: "500px", top:"200px", padding: "55px"}} ></img>
+            </div>
             </div>
                )
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//Github inspired Code
 export default function useService() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [reqError, setReqError] = useState(null);

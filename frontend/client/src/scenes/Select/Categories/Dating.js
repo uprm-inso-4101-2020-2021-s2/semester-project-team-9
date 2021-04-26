@@ -26,22 +26,18 @@ function Dating({ services, user }) {
   const [isLoading, setIsLoading] = useState(true);
   const addData = (title, value) => {
     const values = {
-      owner_id: "1",
+      owner_id: title,
       service_name: title,
-      service_url: "www.pup.com",
+      service_url: url,
       category: "dating",
       plans: value,
     };
-    console.log(values);
     callService(getServices.addServices(values))
       .then(({ data }) => {
         console.log(data);
-        message.success("Logged In");
-        console.log("Success:sadasdas", values);
       })
       .catch((error) => {
         setIsLoading(false);
-        message.error("User not Registered");
         return error;
       });
   };
