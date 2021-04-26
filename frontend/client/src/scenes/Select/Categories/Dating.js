@@ -34,16 +34,16 @@ function Dating({ services, user }) {
     };
     console.log(values);
     callService(getServices.addServices(values))
-      .then((data) => {
+      .then(({ data }) => {
         console.log(data);
         message.success("Logged In");
+        console.log("Success:sadasdas", values);
       })
       .catch((error) => {
         setIsLoading(false);
         message.error("User not Registered");
         return error;
       });
-    console.log("Success:", values);
   };
 
   const onOpenChange = (keys) => {
