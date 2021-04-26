@@ -1,15 +1,20 @@
 button:hover{
-    background-color:#2739d6;
+    background-color:#b4cae7;
+    color: white;
+    border: none;
+    outline: none;
 }
-button{font: bold;} ::after{
+
+button::after{
     font-weight: bold;
      font-variant: small-caps;
  background-color: rgb(197, 204, 206);
  border-style: none;
  border-color:none;
  border-radius: 8px;
- margin: 45px;
- padding: 1%;
  color: white;
  cursor: pointer;
+}
+button:focus{
+    outline: none;
 }
