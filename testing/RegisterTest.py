@@ -22,7 +22,8 @@ email = driver.find_element_by_xpath('//*[@id="signUpForm"]/div[3]/input')
 email.send_keys('agustin.rullan@upr.edu')
 password = driver.find_element_by_xpath('//*[@id="signUpForm"]/div[4]/input')
 password.send_keys('password1')
-confirmationpass = driver.find_element_by_xpath('//*[@id="signUpForm"]/div[5]/input')
+confirmationpass = driver.find_element_by_xpath(
+    '//*[@id="signUpForm"]/div[5]/input')
 confirmationpass.send_keys('password1')
 
 agreeterms = driver.find_element_by_xpath('//*[@id="terms"]')
@@ -31,4 +32,3 @@ agreeterms.click()
 time.sleep(20)
 
 driver.close()
-
