@@ -26,9 +26,9 @@ function Dating({ services, user }) {
   const [isLoading, setIsLoading] = useState(true);
   const addData = (title, value) => {
     const values = {
-      owner_id: title,
+      owner_id: "1",
       service_name: title,
-      service_url: url,
+      service_url: "www.pup.com",
       category: "dating",
       plans: value,
     };
@@ -95,8 +95,13 @@ function Dating({ services, user }) {
                   {`premium:${price1}`}
                 </Radio>
               </Radio.Group>
-              <Button onClick={() => addData(title, value)}>Finish</Button>
             </SubMenu>
+            <Button
+              style={{ color: "blue" }}
+              onClick={() => addData(title, value)}
+            >
+              Submit
+            </Button>
           </Menu>
         </Card>
       </Col>
@@ -124,7 +129,6 @@ function Dating({ services, user }) {
           color: "#19E038",
           image: "/images/The-League-Regular.jpg",
           sub: "sub2",
-
           height: "332.05px",
           title: "The League Regular",
           price1: "$0.00",
@@ -136,7 +140,6 @@ function Dating({ services, user }) {
           color: "#19BCE0",
           image: "/images/The-league-premium-logo.png",
           sub: "sub3",
-
           height: "332.05px",
           title: "The League Premium",
           price1: "$298.99",
