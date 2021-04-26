@@ -26,6 +26,7 @@ pub async fn get_services(db_pool: web::Data<Pool>) -> impl Responder {
 }
 
 pub async fn get_custom_services(db_pool: web::Data<Pool>) -> impl Responder {
+    
     let client: Client = db_pool
         .get()
         .await

@@ -10,7 +10,7 @@ import useService from "../../hooks/useService";
 
 const { TabPane } = Tabs;
 
-function Select() {
+function Select(user) {
   const [services, setServices] = useState();
   const { callService } = useService();
   const [isLoading, setIsLoading] = useState(true);
@@ -28,14 +28,12 @@ function Select() {
         });
     }
   }, [isLoading]);
-  console.log(services && services);
 
-  console.log(services && JSON.parse(services[0].plans));
   return (
     <>
       <Tabs tabPosition="left" tabBarGutter={50} size="large">
         <TabPane tab="Dating" key="1">
-          <Dating />
+          <Dating services={services} user={user} />
         </TabPane>
         <TabPane tab="Education" key="2">
           <Education />

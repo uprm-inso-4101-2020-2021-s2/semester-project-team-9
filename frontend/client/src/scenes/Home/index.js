@@ -16,7 +16,7 @@ function Home() {
           <Calendar />
         </TabPane>
         <TabPane tab="Select" key="2">
-          <Select />
+          <Select user={loggedUser} />
         </TabPane>
         <TabPane tab="Profile" key="3">
           <Profile user={loggedUser} />
