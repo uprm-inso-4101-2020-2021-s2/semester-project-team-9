@@ -75,7 +75,7 @@ const TopNavBar = () => {
             <footer style={{ display: 'flex', flexDirection: 'row', marginTop: '20vh', width: '100%', padding: '2vh 25vh', borderTop: '0.3vh solid rgb(105, 222, 238)' }}>
                 <a href="../public/index.html" class="bar-item" style={{ color: "#fff" }}><img alt='logo' src={logo} width="458" height="68" ></img></a>
                 <p style={{ padding: '5vh 2vh' }}> &#169; Subscription App Manager |</p>
-                <a href="terms" style={{ padding: '5vh 2vh' }} > Terms and Conditions</a>
+                <a href="https://www.termsandconditionsgenerator.com/live.php?token=XPnkWbua4MANcKFfqIjazEasDPhtrRLz" style={{ padding: '5vh 2vh' }} > Terms and Conditions</a>
             </footer>
         </Fragment >
 
