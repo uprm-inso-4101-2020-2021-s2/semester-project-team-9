@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import './top-navbar.css';
 import backgr from '../../app-background.jpg'
 import logo from '../../subscription-logo.PNG'
-import "bootstrap";
 import SignUpContainer from './Signup.jsx';
 import LogIn from './Login.jsx';
 
